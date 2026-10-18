@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="%CLINIC_LANG%">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Los valores %CLINIC_*% salen de src/config/clinic.ts (vite.config.ts los sustituye). -->
+    <title>%CLINIC_TITLE%</title>
+    <meta name="description" content="%CLINIC_DESCRIPTION%" />
+    <link rel="canonical" href="%CLINIC_URL%" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="%CLINIC_NAME%" />
+    <meta property="og:title" content="%CLINIC_TITLE%" />
+    <meta property="og:description" content="%CLINIC_DESCRIPTION%" />
+    <meta property="og:image" content="%CLINIC_OG_IMAGE%" />
+    <meta property="og:url" content="%CLINIC_URL%" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

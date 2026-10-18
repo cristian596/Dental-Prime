@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-brand-50: #f4f9fd;
+  --color-brand-100: #e8f3fb;
+  --color-brand-200: #cfe6f6;
+  --color-brand-300: #a6d0ee;
+  --color-brand-400: #74b6e3;
+  --color-brand-500: #4a9fd8;
+  --color-brand-600: #2f7fb8;
+  --color-brand-700: #256795;
+  --color-brand-900: #0f2f4a;
+  --color-ink: #243447;
+  --color-ink-soft: #4a5b6e;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-serif text-ink;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-700;
+  }
+}
