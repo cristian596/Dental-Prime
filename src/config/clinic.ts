@@ -1,3 +1,36 @@
+import type { LucideIcon } from 'lucide-react'
+import { CalendarCheck, ClipboardCheck, ShieldCheck } from 'lucide-react'
+
+export interface TrustPoint {
+  label: string
+  icon: LucideIcon
+}
+
+export interface HowItWorksStep {
+  title: string
+  description: string
+}
+
+export interface HowItWorks {
+  id: string
+  title: string
+  subtitle: string
+  ctaLabel: string
+  steps: HowItWorksStep[]
+}
+
+export interface Financing {
+  /** false: la sección no se renderiza. */
+  enabled: boolean
+  id: string
+  title: string
+  description: string
+  benefits: string[]
+  partnersTitle: string
+  partners: string[]
+  disclaimer: string
+}
+
 // Único punto de personalización del contenido de la clínica.
 // Para vender la plantilla a otro cliente, edita este archivo y los de src/data/.
 
@@ -57,6 +90,12 @@ export const clinic = {
     image: { src: '/images/hero.webp', alt: 'Fachada de la clínica DENTAL PRIME al atardecer, con grandes ventanales iluminados' },
   },
 
+  trustPoints: [
+    { label: 'Valoración personalizada', icon: ClipboardCheck },
+    { label: 'Especialistas certificados', icon: ShieldCheck },
+    { label: 'Atención con cita previa', icon: CalendarCheck },
+  ] as TrustPoint[],
+
   treatments: {
     id: 'tratamientos',
     title: 'Nuestros tratamientos',
@@ -68,12 +107,39 @@ export const clinic = {
     ],
   },
 
+  howItWorks: {
+    id: 'como-funciona',
+    title: 'Cómo funciona',
+    subtitle: 'Comenzar es sencillo: tres pasos hacia tu nueva sonrisa.',
+    ctaLabel: 'Agenda tu valoración',
+    steps: [
+      { title: 'Escríbenos', description: 'Cuéntanos por WhatsApp qué te gustaría mejorar y elegimos un horario que te acomode.' },
+      { title: 'Te valoramos', description: 'Un especialista revisa tu caso, resuelve tus dudas y te explica las opciones disponibles.' },
+      { title: 'Empieza tu tratamiento', description: 'Con tu plan definido, iniciamos el tratamiento y te acompañamos en cada etapa.' },
+    ],
+  } as HowItWorks,
+
   specialists: {
     id: 'especialistas',
     title: 'Nuestros especialistas',
     subtitle: 'Profesionales con formación avanzada y trato humano.',
     experienceLabel: (years: number) => `${years} años de experiencia`,
   },
+
+  // Bloque opcional. Pon enabled en false para ocultarlo por completo.
+  financing: {
+    enabled: true,
+    id: 'financiamiento',
+    title: 'Financia tu tratamiento',
+    description: 'Consulta opciones de pago pensadas para que cuidar tu sonrisa se ajuste a tu presupuesto.',
+    benefits: ['Cuotas flexibles', 'Trámite sencillo', 'Asesoría en tu valoración'],
+    partnersTitle: 'Entidades aliadas',
+    partners: ['Aliado financiero 1', 'Aliado financiero 2', 'Aliado financiero 3'],
+    disclaimer: 'La aprobación del financiamiento depende de la evaluación de cada entidad financiera. Sujeto a condiciones.',
+  } as Financing,
+
+  floatingWhatsAppMessage: 'Hola, vi su página web y quisiera más información.',
+  floatingWhatsAppLabel: 'Escríbenos por WhatsApp',
 
   facilities: {
     id: 'instalaciones',

@@ -37,6 +37,14 @@ export function Hero() {
               {hero.whatsappLabel}
             </Button>
           </div>
+          <ul className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6">
+            {clinic.trustPoints.map(({ label, icon: Icon }) => (
+              <li key={label} className="flex items-center gap-2 text-sm font-medium text-white/90">
+                <Icon aria-hidden="true" size={20} className="shrink-0 text-brand-300" />
+                {label}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

@@ -33,6 +33,13 @@ Los iconos son de [lucide-react](https://lucide.dev/icons): importa el que quier
 En `src/config/clinic.ts`, cambia `whatsappNumber` por el número en **formato internacional, solo dígitos** (sin `+`, espacios ni guiones). Ejemplo: Colombia `573001234567`, México `5215512345678`.
 `whatsappDefaultMessage` es el mensaje de los botones directos. El formulario arma su propio mensaje con los datos del paciente.
 
+## Financiamiento y "Cómo funciona"
+
+- **Financiamiento**: en `clinic.financing`, `enabled: true` muestra el bloque (después de Especialistas) y `enabled: false` lo oculta sin dejar huecos. Edita `benefits`, `partners` (entidades aliadas) y `disclaimer` en el mismo objeto.
+- **Cómo funciona**: edita `clinic.howItWorks.steps` (cada paso tiene `title` y `description`; la numeración 01, 02, 03… es automática). El título, subtítulo y texto del botón están en el mismo objeto. El botón usa `whatsappDefaultMessage`.
+- **Barra de confianza del Hero**: `clinic.trustPoints` (`label` + `icon` de lucide-react).
+- **Botón flotante de WhatsApp**: mensaje en `clinic.floatingWhatsAppMessage`, texto accesible en `clinic.floatingWhatsAppLabel`.
+
 ## Cambiar colores y fuentes
 
 En `src/index.css`, dentro de `@theme`:
@@ -68,7 +75,7 @@ src/
   data/                tratamientos, especialistas, instalaciones, testimonios
   lib/whatsapp.ts      buildWhatsAppUrl(numero, mensaje)
   components/
-    layout/            Navbar, Footer
+    layout/            Navbar, Footer, FloatingWhatsApp
     ui/                Button, SectionTitle, Card
-    sections/          Hero, Treatments, Specialists, Facilities, Testimonials, BookingForm
+    sections/          Hero, Treatments, HowItWorks, Specialists, Financing, Facilities, Testimonials, BookingForm
 ```
