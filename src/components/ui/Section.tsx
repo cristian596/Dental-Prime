@@ -17,7 +17,7 @@ export function Section({ id, tone = 'white', labelledBy, ariaLabel, children }:
       id={id}
       aria-labelledby={labelledBy}
       aria-label={ariaLabel}
-      className={`scroll-mt-20 py-20 xl:py-28 ${tone === 'tint' ? 'bg-brand-50' : 'bg-white'}`}
+      className={`scroll-mt-20 xl:scroll-mt-28 py-20 xl:py-28 ${tone === 'tint' ? 'bg-brand-50' : 'bg-white'}`}
     >
       <Container>{children}</Container>
     </section>

@@ -30,7 +30,7 @@ export function Treatments() {
                       <Icon aria-hidden="true" size={28} />
                     </span>
                     <h4 className="font-serif text-2xl font-semibold">{name}</h4>
-                    <p className="mt-2 text-ink-soft">{description}</p>
+                    <p className="mt-2 text-base leading-relaxed text-ink-soft xl:text-lg">{description}</p>
                   </Card>
                 ))}
               </ul>

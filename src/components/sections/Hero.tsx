@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id={hero.id}
-      className="relative isolate flex min-h-[80vh] scroll-mt-20 flex-col overflow-hidden bg-brand-900 pt-28 lg:min-h-[85vh]"
+      className="relative isolate flex min-h-[80vh] scroll-mt-20 flex-col xl:scroll-mt-28 overflow-hidden bg-brand-900 pt-28 lg:min-h-[85vh]"
     >
       <img
         src={hero.image.src}
