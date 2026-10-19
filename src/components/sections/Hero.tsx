@@ -14,6 +14,9 @@ export function Hero() {
       <img
         src={hero.image.src}
         alt={hero.image.alt}
+        width={1456}
+        height={816}
+        loading="eager"
         fetchPriority="high"
         className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
       />

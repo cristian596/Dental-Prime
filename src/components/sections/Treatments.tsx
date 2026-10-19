@@ -24,13 +24,29 @@ export function Treatments() {
             <div key={category.id} className="xl:grid xl:grid-cols-4 xl:gap-6">
               <h3 className="mb-6 text-3xl font-semibold text-brand-700 xl:mb-0 xl:pr-4">{category.title}</h3>
               <ul className={`grid gap-6 sm:grid-cols-2 xl:col-span-3 ${columnsByCount[items.length] ?? 'xl:grid-cols-3'}`}>
-                {items.map(({ id, name, description, icon: Icon }) => (
-                  <Card as="li" key={id} className="p-6">
-                    <span className="mb-4 inline-flex rounded-2xl bg-brand-100 p-3 text-brand-700">
-                      <Icon aria-hidden="true" size={28} />
-                    </span>
-                    <h4 className="font-serif text-2xl font-semibold">{name}</h4>
-                    <p className="mt-2 text-base leading-relaxed text-ink-soft xl:text-lg">{description}</p>
+                {items.map(({ id, name, description, icon: Icon, image }) => (
+                  <Card as="li" key={id} className="flex h-full flex-col">
+                    {image && (
+                      <div className="aspect-[4/3] overflow-hidden">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          width={1232}
+                          height={928}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="p-6">
+                      {!image && (
+                        <span className="mb-4 inline-flex rounded-2xl bg-brand-100 p-3 text-brand-700">
+                          <Icon aria-hidden="true" size={28} />
+                        </span>
+                      )}
+                      <h4 className="font-serif text-2xl font-semibold">{name}</h4>
+                      <p className="mt-2 text-base leading-relaxed text-ink-soft xl:text-lg">{description}</p>
+                    </div>
                   </Card>
                 ))}
               </ul>
