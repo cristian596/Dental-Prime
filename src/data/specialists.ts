@@ -6,33 +6,44 @@ export interface Specialist {
   photo: { src: string; alt: string }
 }
 
+// EJEMPLO: reemplazar por datos reales del cliente.
+// Agrega o quita especialistas libremente: con 0 la sección se oculta; la rejilla se ajusta de 1 a 4 o más.
+// Las fotos deben ser del cliente, con su permiso por escrito, o imágenes con licencia.
 export const specialists: Specialist[] = [
   {
-    id: 'laura-mendoza',
-    name: 'Dra. Laura Mendoza',
-    specialty: 'Estética dental y diseño de sonrisa',
-    yearsExperience: 12,
-    photo: { src: '/images/Laura%20Mendoza.webp', alt: 'Retrato de la Dra. Laura Mendoza, especialista en estética dental' },
-  },
-  {
-    id: 'andres-rivera',
-    name: 'Dr. Andrés Rivera',
-    specialty: 'Ortodoncia y ortopedia maxilar',
-    yearsExperience: 15,
-    photo: { src: '/images/Andres%20Rivera.webp', alt: 'Retrato del Dr. Andrés Rivera, ortodoncista' },
-  },
-  {
-    id: 'camila-torres',
-    name: 'Dra. Camila Torres',
-    specialty: 'Implantología y cirugía oral',
+    id: 'especialista-1',
+    name: 'Nombre del especialista',
+    specialty: 'Especialidad del especialista',
+    // EJEMPLO: reemplazar
     yearsExperience: 10,
-    photo: { src: '/images/Camila%20Torres.webp', alt: 'Retrato de la Dra. Camila Torres, especialista en implantes' },
+    // EJEMPLO: reemplazar por fotos del cliente, sin rostros de personas reales
+    photo: { src: '/images/especialista-ejemplo-1.webp', alt: 'Retrato de Nombre del especialista' },
   },
   {
-    id: 'francisco-tavarez',
-    name: 'Dr. Francisco Tavarez',
-    specialty: 'Higiene oral y ortodoncia',
-    yearsExperience: 5,
-    photo: { src: '/images/Francisco%20Tavarez.webp', alt: 'Retrato del Dr. Francisco Tavarez, especialista de DENTAL PRIME' },
+    id: 'especialista-2',
+    name: 'Nombre del especialista 2',
+    specialty: 'Especialidad del especialista',
+    // EJEMPLO: reemplazar
+    yearsExperience: 10,
+    // EJEMPLO: reemplazar por fotos del cliente, sin rostros de personas reales
+    photo: { src: '/images/especialista-ejemplo-2.webp', alt: 'Retrato de Nombre del especialista 2' },
+  },
+  {
+    id: 'especialista-3',
+    name: 'Nombre del especialista 3',
+    specialty: 'Especialidad del especialista',
+    // EJEMPLO: reemplazar
+    yearsExperience: 10,
+    // EJEMPLO: reemplazar por fotos del cliente, sin rostros de personas reales
+    photo: { src: '/images/especialista-ejemplo-3.webp', alt: 'Retrato de Nombre del especialista 3' },
+  },
+  {
+    id: 'especialista-4',
+    name: 'Nombre del especialista 4',
+    specialty: 'Especialidad del especialista',
+    // EJEMPLO: reemplazar
+    yearsExperience: 10,
+    // EJEMPLO: reemplazar por fotos del cliente, sin rostros de personas reales
+    photo: { src: '/images/especialista-ejemplo-4.webp', alt: 'Retrato de Nombre del especialista 4' },
   },
 ]

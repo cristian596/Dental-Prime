@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { clinic } from '../../config/clinic'
+import { sectionVisible } from '../../lib/sections'
 import { Button } from '../ui/Button'
+
+// Los enlaces a secciones ocultas por falta de datos no se muestran.
+const links = clinic.nav.links.filter((link) => sectionVisible[link.href.slice(1)] !== false)
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
@@ -37,7 +41,7 @@ export function Navbar() {
           </a>
 
           <ul className="hidden items-center gap-6 lg:flex xl:gap-10">
-            {nav.links.map((link) => (
+            {links.map((link) => (
               <li key={link.href}>
                 <a href={link.href} className="inline-flex min-h-11 items-center text-sm font-medium text-ink-soft hover:text-brand-700 xl:text-base">
                   {link.label}
@@ -65,7 +69,7 @@ export function Navbar() {
         {open && (
           <div id="menu-movil" className="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-brand-100 bg-white px-6 pb-6 pt-2 lg:hidden">
             <ul className="flex flex-col">
-              {nav.links.map((link) => (
+              {links.map((link) => (
                 <li key={link.href}>
                   <a href={link.href} onClick={close} className="flex min-h-11 items-center py-3 font-medium text-ink">
                     {link.label}

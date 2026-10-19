@@ -6,7 +6,7 @@ export function Footer() {
   const { footer, address, hours } = clinic
   return (
     <footer className="bg-ink text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 pt-14 pb-28 xl:px-10 md:pb-14 md:grid-cols-3">
+      <div className={`mx-auto grid max-w-7xl gap-10 px-6 pt-14 pb-28 xl:px-10 md:pb-14 ${clinic.socials.length > 0 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
         <div>
           <p className="font-serif text-3xl font-bold">{clinic.name}</p>
           <p className="mt-2 text-white/80">{clinic.tagline}</p>
@@ -26,6 +26,7 @@ export function Footer() {
           </address>
         </div>
 
+        {clinic.socials.length > 0 && (
         <div>
           <h2 className="font-sans text-sm font-semibold uppercase tracking-wider text-brand-300">{footer.socialTitle}</h2>
           <ul className="mt-3 space-y-1">
@@ -44,10 +45,25 @@ export function Footer() {
             ))}
           </ul>
         </div>
+        )}
       </div>
-      <p className="border-t border-white/10 py-5 text-center text-sm text-white/70">
-        © {year} {clinic.name}. {footer.rights}
-      </p>
+      <div className="border-t border-white/10 px-6 py-5 text-center text-sm text-white/70">
+        <p>
+          © {year} {clinic.name}. {footer.rights}
+        </p>
+        {clinic.privacyPolicyUrl && (
+          <p className="mt-2">
+            <a
+              href={clinic.privacyPolicyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/90 underline underline-offset-4 hover:text-white"
+            >
+              {footer.privacyLinkLabel}
+            </a>
+          </p>
+        )}
+      </div>
     </footer>
   )
 }

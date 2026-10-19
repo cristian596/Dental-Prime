@@ -2,6 +2,7 @@ import { clinic } from '../../config/clinic'
 import { treatments } from '../../data/treatments'
 import { Card } from '../ui/Card'
 import { Section } from '../ui/Section'
+import type { SectionTone } from '../ui/Section'
 import { SectionTitle } from '../ui/SectionTitle'
 
 // Clases completas para que Tailwind las detecte. Cada categoría llena su fila sin tarjetas huérfanas.
@@ -11,10 +12,10 @@ const columnsByCount: Record<number, string> = {
   3: 'xl:grid-cols-3',
 }
 
-export function Treatments() {
+export function Treatments({ tone }: { tone: SectionTone }) {
   const { treatments: t } = clinic
   return (
-    <Section id={t.id} labelledBy={`${t.id}-titulo`}>
+    <Section id={t.id} tone={tone} labelledBy={`${t.id}-titulo`}>
       <SectionTitle id={`${t.id}-titulo`} title={t.title} subtitle={t.subtitle} />
       <div className="space-y-14">
         {t.categories.map((category) => {

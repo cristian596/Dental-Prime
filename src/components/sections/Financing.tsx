@@ -2,13 +2,14 @@ import { Check } from 'lucide-react'
 import { clinic } from '../../config/clinic'
 import { Card } from '../ui/Card'
 import { Section } from '../ui/Section'
+import type { SectionTone } from '../ui/Section'
 
-export function Financing() {
+export function Financing({ tone }: { tone: SectionTone }) {
   const { financing: f } = clinic
-  if (!f.enabled) return null
+  const hasPartners = f.partners.length > 0
   return (
-    <Section id={f.id} tone="tint" labelledBy={`${f.id}-titulo`}>
-      <Card className="grid gap-8 p-6 sm:p-10 lg:grid-cols-2 lg:gap-12 xl:p-14">
+    <Section id={f.id} tone={tone} labelledBy={`${f.id}-titulo`}>
+      <Card className={`grid gap-8 p-6 sm:p-10 lg:gap-12 xl:p-14 ${hasPartners ? 'lg:grid-cols-2' : ''}`}>
         <div>
           <h2 id={`${f.id}-titulo`} className="text-4xl font-semibold sm:text-5xl">
             {f.title}
@@ -23,16 +24,18 @@ export function Financing() {
             ))}
           </ul>
         </div>
-        <div>
-          <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-brand-700">{f.partnersTitle}</h3>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3">
-            {f.partners.map((partner) => (
-              <li key={partner} className="rounded-2xl border border-brand-100 bg-brand-50 px-4 py-3 font-semibold text-ink">
-                {partner}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {hasPartners && (
+          <div>
+            <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-brand-700">{f.partnersTitle}</h3>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3">
+              {f.partners.map((partner) => (
+                <li key={partner} className="rounded-2xl border border-brand-100 bg-brand-50 px-4 py-3 font-semibold text-ink">
+                  {partner}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </Card>
       <p className="mt-4 text-center text-xs text-ink-soft">{f.disclaimer}</p>
     </Section>

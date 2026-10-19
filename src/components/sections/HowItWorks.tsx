@@ -4,12 +4,13 @@ import { buildWhatsAppUrl } from '../../lib/whatsapp'
 import { Button } from '../ui/Button'
 import { Card } from '../ui/Card'
 import { Section } from '../ui/Section'
+import type { SectionTone } from '../ui/Section'
 import { SectionTitle } from '../ui/SectionTitle'
 
-export function HowItWorks() {
+export function HowItWorks({ tone }: { tone: SectionTone }) {
   const { howItWorks: h } = clinic
   return (
-    <Section id={h.id} tone="tint" labelledBy={`${h.id}-titulo`}>
+    <Section id={h.id} tone={tone} labelledBy={`${h.id}-titulo`}>
       <SectionTitle id={`${h.id}-titulo`} title={h.title} subtitle={h.subtitle} />
       <ol className="grid gap-6 md:grid-cols-3 xl:gap-8">
         {h.steps.map((step, index) => (

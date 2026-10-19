@@ -1,10 +1,12 @@
 import type { ReactNode } from 'react'
 import { Container } from './Container'
 
+export type SectionTone = 'white' | 'tint'
+
 interface SectionProps {
   id: string
   /** white: fondo blanco. tint: fondo brand-50. Alternar entre secciones consecutivas. */
-  tone?: 'white' | 'tint'
+  tone?: SectionTone
   /** id del título (aria-labelledby). */
   labelledBy?: string
   ariaLabel?: string

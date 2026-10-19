@@ -4,8 +4,12 @@ import { specialists } from '../data/specialists.ts'
 import { testimonials } from '../data/testimonials.ts'
 
 // Cifras derivadas de src/data/: cambian solas al editar especialistas o testimonios.
-const maxYearsExperience = Math.max(...specialists.map((s) => s.yearsExperience))
-const averageRating = testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length
+// Sin datos devuelven '' y la cifra se oculta (ver clinic.stats).
+const maxYearsExperience = specialists.length ? Math.max(...specialists.map((s) => s.yearsExperience)) : 0
+const averageRating = testimonials.length ? testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length : 0
+
+// EJEMPLO: reemplazar por datos reales del cliente (se reutiliza en textos de accesibilidad)
+const clinicName = 'DENTAL PRIME'
 
 export interface TrustPoint {
   label: string
@@ -54,36 +58,52 @@ export interface Financing {
 
 // Único punto de personalización del contenido de la clínica.
 // Para vender la plantilla a otro cliente, edita este archivo y los de src/data/.
+// Todo bloque marcado con "EJEMPLO" es contenido de muestra que el comprador debe reemplazar.
 
 export const clinic = {
-  name: 'DENTAL PRIME',
+  // EJEMPLO: reemplazar por datos reales del cliente
+  name: clinicName,
   tagline: 'Sonrisas que transforman vidas',
-  // Formato internacional, solo dígitos, sin "+" ni espacios (VALOR DE EJEMPLO).
+
+  // EJEMPLO: reemplazar por datos reales del cliente
+  // whatsappNumber: formato internacional, solo dígitos, sin "+" ni espacios.
   whatsappNumber: '573001234567',
   whatsappDefaultMessage: 'Hola, quisiera información sobre una valoración dental.',
   phoneDisplay: '+57 300 123 4567',
+
+  // EJEMPLO: reemplazar por datos reales del cliente
   address: {
     street: 'Calle 123 #45-67, Consultorio 801',
     city: 'Bogotá, Colombia',
     mapUrl: 'https://maps.google.com/?q=Calle+123+45-67+Bogota',
   },
-  // VALOR DE EJEMPLO: en Google Maps, Compartir > Insertar un mapa, y copia el src del iframe.
+  // EJEMPLO: reemplazar por datos reales del cliente
+  // En Google Maps: Compartir > Insertar un mapa, y copia el src del iframe. Vacío ('') oculta el mapa
+  // y deja solo la dirección y el enlace a Maps.
   mapEmbedUrl: 'https://www.google.com/maps?q=Calle+123+45-67+Bogota&output=embed',
+  // EJEMPLO: reemplazar por datos reales del cliente
   hours: [
     { days: 'Lunes a viernes', time: '8:00 a. m. – 6:00 p. m.' },
     { days: 'Sábados', time: '9:00 a. m. – 1:00 p. m.' },
     { days: 'Domingos y festivos', time: 'Cerrado' },
   ],
+  // EJEMPLO: reemplazar por datos reales del cliente (lista vacía oculta la columna del pie de página)
   socials: [
     { label: 'Instagram', url: 'https://instagram.com/dentalprime' },
     { label: 'Facebook', url: 'https://facebook.com/dentalprime' },
   ],
 
-  // Datos para <head> (index.html). EJEMPLOS: reemplázalos por los del cliente.
+  // EJEMPLO: reemplazar por la política de datos del cliente
+  // Vacío ('') oculta el enlace en el pie de página y en el formulario.
+  privacyPolicyUrl: 'https://www.ejemplo-dentalprime.com/politica-de-datos',
+
+  // Datos para <head> (index.html): vite.config.ts los inyecta en los marcadores %CLINIC_*%.
   seo: {
+    // EJEMPLO: reemplazar por datos reales del cliente (título y descripción de Google y redes)
     title: 'DENTAL PRIME | Clínica dental en Bogotá',
     description:
       'Estética dental, ortodoncia e implantes con especialistas y tecnología de vanguardia. Agenda tu valoración por WhatsApp.',
+    // EJEMPLO: reemplazar por datos reales del cliente (dominio real donde se publicará el sitio)
     siteUrl: 'https://www.ejemplo-dentalprime.com',
     ogImage: '/images/hero.webp',
     lang: 'es',
@@ -110,7 +130,8 @@ export const clinic = {
     subtitle:
       'Tratamientos dentales personalizados en un ambiente cálido, con tecnología moderna y un equipo que te acompaña en cada paso.',
     whatsappLabel: 'Escríbenos por WhatsApp',
-    image: { src: '/images/hero.webp', alt: 'Fachada de la clínica DENTAL PRIME al atardecer, con grandes ventanales iluminados' },
+    // EJEMPLO: reemplazar por la foto del cliente (con licencia o permiso)
+    image: { src: '/images/hero.webp', alt: `Fachada de la clínica ${clinicName} al atardecer, con grandes ventanales iluminados` },
   },
 
   trustPoints: [
@@ -119,13 +140,15 @@ export const clinic = {
     { label: 'Atención con cita previa', icon: CalendarCheck },
   ] as TrustPoint[],
 
-  // Pacientes atendidos es un VALOR DE EJEMPLO (no hay dato en el proyecto). El resto se calcula de src/data/.
+  // EJEMPLO: reemplazar por datos reales del cliente
+  // "Pacientes atendidos" es inventado; las otras tres se calculan de src/data/ (también son de ejemplo).
+  // Una cifra con value vacío ('') no se muestra; sin cifras, la banda se oculta.
   statsLabel: 'Cifras de la clínica',
   stats: [
     { value: '+5.000', label: 'pacientes atendidos' },
-    { value: `+${maxYearsExperience}`, label: 'años de experiencia' },
-    { value: `+${specialists.length}`, label: 'especialistas' },
-    { value: averageRating.toFixed(1), label: 'calificación promedio' },
+    { value: maxYearsExperience ? `+${maxYearsExperience}` : '', label: 'años de experiencia' },
+    { value: specialists.length ? `+${specialists.length}` : '', label: 'especialistas' },
+    { value: testimonials.length ? averageRating.toFixed(1) : '', label: 'calificación promedio' },
   ] as Stat[],
 
   treatments: {
@@ -166,6 +189,7 @@ export const clinic = {
     description: 'Consulta opciones de pago pensadas para que cuidar tu sonrisa se ajuste a tu presupuesto.',
     benefits: ['Cuotas flexibles', 'Trámite sencillo', 'Asesoría en tu valoración'],
     partnersTitle: 'Entidades aliadas',
+    // EJEMPLO: reemplazar por datos reales del cliente (lista vacía oculta la columna de aliados)
     partners: ['Aliado financiero 1', 'Aliado financiero 2', 'Aliado financiero 3'],
     disclaimer: 'La aprobación del financiamiento depende de la evaluación de cada entidad financiera. Sujeto a condiciones.',
   } as Financing,
@@ -176,7 +200,7 @@ export const clinic = {
     subtitle: 'Resolvemos las dudas más comunes antes de tu primera visita.',
   },
 
-  // PREGUNTAS DE EJEMPLO: reemplázalas por las respuestas reales de la clínica.
+  // EJEMPLO: reemplazar por datos reales del cliente (precios, tiempos y políticas reales). Con 0 la sección se oculta.
   faq: [
     {
       question: '¿Cuánto cuesta la valoración?',
@@ -229,6 +253,8 @@ export const clinic = {
     },
     submitLabel: 'Enviar por WhatsApp',
     helper: 'Al enviar se abrirá WhatsApp con tu mensaje listo. No guardamos tus datos.',
+    privacyNoticePrefix: 'Al enviar aceptas nuestra',
+    privacyNoticeLinkLabel: 'política de tratamiento de datos',
     messageIntro: 'Hola, quiero agendar una valoración.',
     notProvided: 'Sin preferencia',
     contactTitle: 'Visítanos',
@@ -236,7 +262,7 @@ export const clinic = {
     hoursLabel: 'Horarios',
     whatsappLinkLabel: 'Chatea directo por WhatsApp',
     mapLinkLabel: 'Ver en el mapa',
-    mapTitle: 'Mapa con la ubicación de la clínica DENTAL PRIME',
+    mapTitle: `Mapa con la ubicación de la clínica ${clinicName}`,
   },
 
   finalCta: {
@@ -248,6 +274,7 @@ export const clinic = {
     contactTitle: 'Contacto',
     socialTitle: 'Síguenos',
     rights: 'Todos los derechos reservados.',
+    privacyLinkLabel: 'Política de tratamiento de datos',
     socialAriaLabel: (network: string) => `${network} (se abre en una pestaña nueva)`,
   },
 }

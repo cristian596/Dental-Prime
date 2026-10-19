@@ -6,12 +6,13 @@ import { treatments } from '../../data/treatments'
 import { buildWhatsAppUrl } from '../../lib/whatsapp'
 import { Button } from '../ui/Button'
 import { Section } from '../ui/Section'
+import type { SectionTone } from '../ui/Section'
 import { SectionTitle } from '../ui/SectionTitle'
 
 const inputClasses =
   'mt-2 w-full rounded-2xl border border-brand-300 bg-white px-4 py-3 text-ink placeholder:text-ink-soft/70'
 
-export function BookingForm() {
+export function BookingForm({ tone }: { tone: SectionTone }) {
   const { booking: b } = clinic
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({})
 
@@ -46,7 +47,7 @@ export function BookingForm() {
   }
 
   return (
-    <Section id={b.id} tone="tint" labelledBy={`${b.id}-titulo`}>
+    <Section id={b.id} tone={tone} labelledBy={`${b.id}-titulo`}>
         <SectionTitle id={`${b.id}-titulo`} title={b.title} subtitle={b.subtitle} />
         <div className="grid gap-10 xl:grid-cols-2 xl:gap-12">
           <form
@@ -127,18 +128,34 @@ export function BookingForm() {
               <MessageCircle aria-hidden="true" size={20} />
               {b.submitLabel}
             </Button>
+            {clinic.privacyPolicyUrl && (
+              <p className="text-sm text-ink-soft">
+                {b.privacyNoticePrefix}{' '}
+                <a
+                  href={clinic.privacyPolicyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-brand-700 underline underline-offset-4"
+                >
+                  {b.privacyNoticeLinkLabel}
+                </a>
+                .
+              </p>
+            )}
             <p className="text-sm text-ink-soft">{b.helper}</p>
           </form>
 
-          <div className="space-y-6 rounded-3xl bg-brand-100 p-6 sm:p-8">
-            <iframe
-              src={clinic.mapEmbedUrl}
-              title={b.mapTitle}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-              className="h-72 w-full rounded-2xl border-0 xl:h-96"
-            />
+          <div className={`space-y-6 rounded-3xl bg-brand-100 p-6 sm:p-8 ${clinic.mapEmbedUrl ? '' : 'xl:self-start'}`}>
+            {clinic.mapEmbedUrl && (
+              <iframe
+                src={clinic.mapEmbedUrl}
+                title={b.mapTitle}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                className="h-72 w-full rounded-2xl border-0 xl:h-96"
+              />
+            )}
             <h3 className="text-3xl font-semibold">{b.contactTitle}</h3>
             <div className="flex gap-3">
               <MapPin aria-hidden="true" className="mt-1 shrink-0 text-brand-700" />

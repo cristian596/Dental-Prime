@@ -11,6 +11,7 @@ export interface Treatment {
   image?: { src: string; alt: string }
 }
 
+// EJEMPLO: reemplazar por datos reales del cliente. Las fotos de tratamientos deben tener licencia o permiso.
 export const treatments: Treatment[] = [
   {
     id: 'blanqueamiento',

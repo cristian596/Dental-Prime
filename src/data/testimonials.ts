@@ -7,6 +7,8 @@ export interface Testimonial {
   rating: number
 }
 
+// EJEMPLO: reemplazar por datos reales del cliente (testimonios reales, con autorización del paciente).
+// Con 0 testimonios la sección se oculta.
 export const testimonials: Testimonial[] = [
   {
     id: 'testimonio-1',
