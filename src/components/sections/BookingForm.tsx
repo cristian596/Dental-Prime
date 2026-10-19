@@ -5,6 +5,7 @@ import { clinic } from '../../config/clinic'
 import { treatments } from '../../data/treatments'
 import { buildWhatsAppUrl } from '../../lib/whatsapp'
 import { Button } from '../ui/Button'
+import { Section } from '../ui/Section'
 import { SectionTitle } from '../ui/SectionTitle'
 
 const inputClasses =
@@ -45,10 +46,9 @@ export function BookingForm() {
   }
 
   return (
-    <section id={b.id} aria-labelledby={`${b.id}-titulo`} className="scroll-mt-20 py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <Section id={b.id} tone="tint" labelledBy={`${b.id}-titulo`}>
         <SectionTitle id={`${b.id}-titulo`} title={b.title} subtitle={b.subtitle} />
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid gap-10 xl:grid-cols-2 xl:gap-12">
           <form
             onSubmit={handleSubmit}
             noValidate
@@ -131,6 +131,14 @@ export function BookingForm() {
           </form>
 
           <div className="space-y-6 rounded-3xl bg-brand-100 p-6 sm:p-8">
+            <iframe
+              src={clinic.mapEmbedUrl}
+              title={b.mapTitle}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+              className="h-72 w-full rounded-2xl border-0 xl:h-96"
+            />
             <h3 className="text-3xl font-semibold">{b.contactTitle}</h3>
             <div className="flex gap-3">
               <MapPin aria-hidden="true" className="mt-1 shrink-0 text-brand-700" />
@@ -174,7 +182,6 @@ export function BookingForm() {
             </Button>
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   )
 }

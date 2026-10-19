@@ -1,12 +1,13 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
-type Variant = 'primary' | 'outline' | 'light'
+type Variant = 'primary' | 'outline' | 'light' | 'inverse'
 
 const base =
   'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-colors'
 const variants: Record<Variant, string> = {
   primary: 'bg-brand-700 text-white shadow-sm hover:bg-brand-600',
   outline: 'border border-brand-700 text-brand-700 hover:bg-brand-100',
+  inverse: 'bg-white text-brand-700 shadow-sm hover:bg-brand-100',
   light: 'border border-white bg-transparent text-white hover:bg-white/15',
 }
 

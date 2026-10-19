@@ -10,7 +10,7 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-brand-100 bg-white/95 backdrop-blur">
-      <nav aria-label={nav.ariaLabel} className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <nav aria-label={nav.ariaLabel} className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3 xl:px-10">
         <a href="#inicio" className="font-serif text-2xl font-bold tracking-wide text-brand-700">
           {clinic.name}
         </a>
@@ -42,7 +42,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div id="menu-movil" className="border-t border-brand-100 bg-white px-4 pb-6 pt-2 lg:hidden">
+        <div id="menu-movil" className="border-t border-brand-100 bg-white px-6 pb-6 pt-2 lg:hidden">
           <ul className="flex flex-col">
             {nav.links.map((link) => (
               <li key={link.href}>

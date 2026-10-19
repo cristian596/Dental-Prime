@@ -1,5 +1,11 @@
 import type { LucideIcon } from 'lucide-react'
 import { CalendarCheck, ClipboardCheck, ShieldCheck } from 'lucide-react'
+import { specialists } from '../data/specialists.ts'
+import { testimonials } from '../data/testimonials.ts'
+
+// Cifras derivadas de src/data/: cambian solas al editar especialistas o testimonios.
+const maxYearsExperience = Math.max(...specialists.map((s) => s.yearsExperience))
+const averageRating = testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length
 
 export interface TrustPoint {
   label: string
@@ -17,6 +23,21 @@ export interface HowItWorks {
   subtitle: string
   ctaLabel: string
   steps: HowItWorksStep[]
+}
+
+export interface Stat {
+  value: string
+  label: string
+}
+
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
+export interface FinalCta {
+  title: string
+  ctaLabel: string
 }
 
 export interface Financing {
@@ -46,6 +67,8 @@ export const clinic = {
     city: 'Bogotá, Colombia',
     mapUrl: 'https://maps.google.com/?q=Calle+123+45-67+Bogota',
   },
+  // VALOR DE EJEMPLO: en Google Maps, Compartir > Insertar un mapa, y copia el src del iframe.
+  mapEmbedUrl: 'https://www.google.com/maps?q=Calle+123+45-67+Bogota&output=embed',
   hours: [
     { days: 'Lunes a viernes', time: '8:00 a. m. – 6:00 p. m.' },
     { days: 'Sábados', time: '9:00 a. m. – 1:00 p. m.' },
@@ -96,6 +119,15 @@ export const clinic = {
     { label: 'Atención con cita previa', icon: CalendarCheck },
   ] as TrustPoint[],
 
+  // Pacientes atendidos es un VALOR DE EJEMPLO (no hay dato en el proyecto). El resto se calcula de src/data/.
+  statsLabel: 'Cifras de la clínica',
+  stats: [
+    { value: '+5.000', label: 'pacientes atendidos' },
+    { value: `+${maxYearsExperience}`, label: 'años de experiencia' },
+    { value: `+${specialists.length}`, label: 'especialistas' },
+    { value: averageRating.toFixed(1), label: 'calificación promedio' },
+  ] as Stat[],
+
   treatments: {
     id: 'tratamientos',
     title: 'Nuestros tratamientos',
@@ -138,6 +170,36 @@ export const clinic = {
     disclaimer: 'La aprobación del financiamiento depende de la evaluación de cada entidad financiera. Sujeto a condiciones.',
   } as Financing,
 
+  faqSection: {
+    id: 'preguntas-frecuentes',
+    title: 'Preguntas frecuentes',
+    subtitle: 'Resolvemos las dudas más comunes antes de tu primera visita.',
+  },
+
+  // PREGUNTAS DE EJEMPLO: reemplázalas por las respuestas reales de la clínica.
+  faq: [
+    {
+      question: '¿Cuánto cuesta la valoración?',
+      answer: 'La valoración inicial tiene un costo accesible que te confirmamos al agendar. Incluye revisión completa y un plan de tratamiento por escrito.',
+    },
+    {
+      question: '¿Cuánto dura un tratamiento?',
+      answer: 'Depende del caso: un blanqueamiento puede terminar en una sesión, mientras que una ortodoncia toma varios meses. En tu valoración te damos un tiempo estimado.',
+    },
+    {
+      question: '¿Los procedimientos duelen?',
+      answer: 'Trabajamos con anestesia local y técnicas mínimamente invasivas para que tu experiencia sea cómoda. Si sientes molestia en cualquier momento, nos detenemos.',
+    },
+    {
+      question: '¿Qué formas de pago aceptan?',
+      answer: 'Aceptamos efectivo, tarjetas débito y crédito, transferencias y opciones de financiamiento con entidades aliadas.',
+    },
+    {
+      question: '¿Qué pasa después de agendar?',
+      answer: 'Te escribimos por WhatsApp para confirmar día y hora, y te enviamos un recordatorio antes de tu cita con las indicaciones necesarias.',
+    },
+  ] as FaqItem[],
+
   floatingWhatsAppMessage: 'Hola, vi su página web y quisiera más información.',
   floatingWhatsAppLabel: 'Escríbenos por WhatsApp',
 
@@ -174,7 +236,13 @@ export const clinic = {
     hoursLabel: 'Horarios',
     whatsappLinkLabel: 'Chatea directo por WhatsApp',
     mapLinkLabel: 'Ver en el mapa',
+    mapTitle: 'Mapa con la ubicación de la clínica DENTAL PRIME',
   },
+
+  finalCta: {
+    title: 'Empieza hoy el cambio que tu sonrisa necesita',
+    ctaLabel: 'Agenda tu valoración',
+  } as FinalCta,
 
   footer: {
     contactTitle: 'Contacto',

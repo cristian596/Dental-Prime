@@ -6,7 +6,7 @@ export function Footer() {
   const { footer, address, hours } = clinic
   return (
     <footer className="bg-ink text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-14 pb-28 sm:px-6 md:pb-14 md:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 pt-14 pb-28 xl:px-10 md:pb-14 md:grid-cols-3">
         <div>
           <p className="font-serif text-3xl font-bold">{clinic.name}</p>
           <p className="mt-2 text-white/80">{clinic.tagline}</p>

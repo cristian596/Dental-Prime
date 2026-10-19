@@ -40,6 +40,16 @@ En `src/config/clinic.ts`, cambia `whatsappNumber` por el número en **formato i
 - **Barra de confianza del Hero**: `clinic.trustPoints` (`label` + `icon` de lucide-react).
 - **Botón flotante de WhatsApp**: mensaje en `clinic.floatingWhatsAppMessage`, texto accesible en `clinic.floatingWhatsAppLabel`.
 
+## Datos de ejemplo que debes reemplazar
+
+En `src/config/clinic.ts`:
+
+- `stats`: las cuatro cifras de la banda bajo el Hero (pacientes, años, especialistas, calificación) son **inventadas**.
+- `faq`: las preguntas frecuentes y sus respuestas son **de ejemplo**; ajústalas a precios, tiempos y políticas reales.
+- `mapEmbedUrl`: URL del mapa de ejemplo. En Google Maps usa Compartir > Insertar un mapa y copia el `src` del iframe.
+- `finalCta`: titular de la banda final antes del pie de página.
+- Además: `whatsappNumber`, `phoneDisplay`, `address`, `hours`, `socials` y `seo.siteUrl`.
+
 ## Cambiar colores y fuentes
 
 En `src/index.css`, dentro de `@theme`:
@@ -76,6 +86,6 @@ src/
   lib/whatsapp.ts      buildWhatsAppUrl(numero, mensaje)
   components/
     layout/            Navbar, Footer, FloatingWhatsApp
-    ui/                Button, SectionTitle, Card
-    sections/          Hero, Treatments, HowItWorks, Specialists, Financing, Facilities, Testimonials, BookingForm
+    ui/                Button, SectionTitle, Card, Container, Section, Accordion
+    sections/          Hero, Stats, Treatments, HowItWorks, Specialists, Financing, Facilities, Testimonials, Faq, BookingForm, FinalCta
 ```
