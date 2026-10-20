@@ -13,7 +13,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="font-sans text-sm font-semibold uppercase tracking-wider text-brand-300">{footer.contactTitle}</h2>
+          <h2 className="font-sans text-sm font-semibold text-brand-300">{footer.contactTitle}</h2>
           <address className="mt-3 space-y-1 not-italic text-white/90">
             <p>{address.street}</p>
             <p>{address.city}</p>
@@ -28,7 +28,7 @@ export function Footer() {
 
         {clinic.socials.length > 0 && (
         <div>
-          <h2 className="font-sans text-sm font-semibold uppercase tracking-wider text-brand-300">{footer.socialTitle}</h2>
+          <h2 className="font-sans text-sm font-semibold text-brand-300">{footer.socialTitle}</h2>
           <ul className="mt-3 space-y-1">
             {clinic.socials.map((s) => (
               <li key={s.label}>

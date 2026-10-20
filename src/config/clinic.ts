@@ -9,7 +9,7 @@ const maxYearsExperience = specialists.length ? Math.max(...specialists.map((s) 
 const averageRating = testimonials.length ? testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length : 0
 
 // EJEMPLO: reemplazar por datos reales del cliente (se reutiliza en textos de accesibilidad)
-const clinicName = 'DENTAL PRIME'
+const clinicName = 'AQUÍ VA TU MARCA'
 
 export interface TrustPoint {
   label: string
@@ -100,22 +100,22 @@ export const clinic = {
   ],
   // EJEMPLO: reemplazar por datos reales del cliente (lista vacía oculta la columna del pie de página)
   socials: [
-    { label: 'Instagram', url: 'https://instagram.com/dentalprime' },
-    { label: 'Facebook', url: 'https://facebook.com/dentalprime' },
+    { label: 'Instagram', url: 'https://instagram.com/aqui-va-tu-marca' },
+    { label: 'Facebook', url: 'https://facebook.com/aqui-va-tu-marca' },
   ],
 
   // EJEMPLO: reemplazar por la política de datos del cliente
   // Vacío ('') oculta el enlace en el pie de página y en el formulario.
-  privacyPolicyUrl: 'https://www.ejemplo-dentalprime.com/politica-de-datos',
+  privacyPolicyUrl: 'https://www.ejemplo-aqui-va-tu-marca.com/politica-de-datos',
 
   // Datos para <head> (index.html): vite.config.ts los inyecta en los marcadores %CLINIC_*%.
   seo: {
     // EJEMPLO: reemplazar por datos reales del cliente (título y descripción de Google y redes)
-    title: 'DENTAL PRIME | Clínica dental en Bogotá',
+    title: 'AQUÍ VA TU MARCA | Clínica dental en Bogotá',
     description:
       'Estética dental, ortodoncia e implantes con especialistas y tecnología de vanguardia. Agenda tu valoración por WhatsApp.',
     // EJEMPLO: reemplazar por datos reales del cliente (dominio real donde se publicará el sitio)
-    siteUrl: 'https://www.ejemplo-dentalprime.com',
+    siteUrl: 'https://www.ejemplo-aqui-va-tu-marca.com',
     ogImage: '/images/hero.webp',
     lang: 'es',
   },
@@ -156,10 +156,10 @@ export const clinic = {
   // Una cifra con value vacío ('') no se muestra; sin cifras, la banda se oculta.
   statsLabel: 'Cifras de la clínica',
   stats: [
-    { value: '+5.000', label: 'pacientes atendidos' },
-    { value: maxYearsExperience ? `+${maxYearsExperience}` : '', label: 'años de experiencia' },
-    { value: specialists.length ? `+${specialists.length}` : '', label: 'especialistas' },
-    { value: testimonials.length ? averageRating.toFixed(1) : '', label: 'calificación promedio' },
+    { value: '+5.000', label: 'Pacientes atendidos' },
+    { value: maxYearsExperience ? `+${maxYearsExperience}` : '', label: 'Años de experiencia' },
+    { value: specialists.length ? `+${specialists.length}` : '', label: 'Especialistas' },
+    { value: testimonials.length ? averageRating.toFixed(1) : '', label: 'Calificación promedio' },
   ] as Stat[],
 
   treatments: {
@@ -262,13 +262,13 @@ export const clinic = {
     title: 'Agenda tu valoración',
     subtitle: 'Déjanos tus datos y te escribimos por WhatsApp para confirmar tu cita.',
     fields: {
-      name: { label: 'Nombre completo', placeholder: 'Tu nombre', error: 'Escribe tu nombre.' },
-      phone: { label: 'Teléfono', placeholder: '300 123 4567', error: 'Escribe tu teléfono.' },
+      name: { label: 'Nombre completo', placeholder: 'Tu nombre', error: 'Escribe tu nombre para continuar' },
+      phone: { label: 'Teléfono', placeholder: '300 123 4567', error: 'Escribe tu teléfono para continuar' },
       treatment: { label: 'Tratamiento de interés', placeholder: 'Selecciona una opción' },
       schedule: { label: 'Día u horario preferido', placeholder: 'Ej.: martes por la tarde' },
     },
     submitLabel: 'Enviar por WhatsApp',
-    helper: 'Al enviar se abrirá WhatsApp con tu mensaje listo. No guardamos tus datos.',
+    helper: 'Tus datos solo se usan para abrir la conversación en WhatsApp.',
     privacyNoticePrefix: 'Al enviar aceptas nuestra',
     privacyNoticeLinkLabel: 'política de tratamiento de datos',
     messageIntro: 'Hola, quiero agendar una valoración.',

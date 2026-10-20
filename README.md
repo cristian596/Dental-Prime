@@ -2,7 +2,7 @@
 
 Landing de una sola página lista para personalizar y publicar. Stack: Vite + React + TypeScript + Tailwind CSS. No tiene backend: el formulario abre WhatsApp con el mensaje ya escrito.
 
-> **Todo el contenido que trae es de ejemplo** (nombre "DENTAL PRIME", teléfonos, dirección, cifras, preguntas, testimonios, fotos…). En el código está marcado con el comentario `EJEMPLO`. Busca `EJEMPLO` en el proyecto para encontrar todo lo que debes reemplazar.
+> **Todo el contenido que trae es de ejemplo** (nombre "AQUÍ VA TU MARCA", teléfonos, dirección, cifras, preguntas, testimonios, fotos…). En el código está marcado con el comentario `EJEMPLO`. Busca `EJEMPLO` en el proyecto para encontrar todo lo que debes reemplazar.
 
 ```bash
 npm install
@@ -105,7 +105,9 @@ Si prefieres nombres propios o más fotos, actualiza la ruta y el `alt` en `clin
 
 ### Fotos de ejemplo que contienen la marca
 
-Estas imágenes muestran el letrero "DENTAL PRIME" y deben cambiarse antes de publicar:
+Algunas imágenes de ejemplo muestran un letrero con el nombre de marca de prueba. Reemplázalas por fotos del cliente.
+
+Estas imágenes muestran ese letrero y deben cambiarse antes de publicar:
 
 - `public/images/Kennedy.webp`: reemplazar: muestra la marca de ejemplo (letrero grande).
 - `public/images/Teusaquillo.webp`: reemplazar: muestra la marca de ejemplo.

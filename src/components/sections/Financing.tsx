@@ -24,7 +24,7 @@ export function Financing({ tone }: { tone: SectionTone }) {
         </ul>
         {hasPartners && (
           <div className="mt-8">
-            <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-brand-700">{f.partnersTitle}</h3>
+            <h3 className="font-sans text-sm font-semibold text-brand-700">{f.partnersTitle}</h3>
             <ul className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
               {f.partners.map((partner) => (
                 <li key={partner.name} className="flex h-24 items-center justify-center overflow-hidden rounded-2xl border border-brand-100 bg-white p-6 xl:h-28">
@@ -43,7 +43,7 @@ export function Financing({ tone }: { tone: SectionTone }) {
           </div>
         )}
       </Card>
-      <p className="mt-4 text-center text-xs text-ink-soft">{f.disclaimer}</p>
+      <p className="mt-4 text-center text-sm text-ink-soft">{f.disclaimer}</p>
     </Section>
   )
 }

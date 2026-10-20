@@ -1,4 +1,4 @@
-# Licencia de uso de la plantilla DENTAL PRIME
+# Licencia de uso de la plantilla AQUÍ VA TU MARCA
 
 ## 1. Público objetivo
 

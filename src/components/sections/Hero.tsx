@@ -43,9 +43,9 @@ export function Hero() {
             </div>
           </div>
         </div>
-        <ul className="flex flex-col gap-3 border-t border-white/20 py-6 sm:flex-row sm:flex-wrap sm:gap-x-10">
+        <ul className="mb-6 flex flex-col gap-3 rounded-2xl bg-brand-900/70 px-5 py-4 backdrop-blur-sm sm:flex-row sm:flex-wrap sm:gap-x-10">
           {clinic.trustPoints.map(({ label, icon: Icon }) => (
-            <li key={label} className="flex items-center gap-2 text-sm font-medium text-white/90">
+            <li key={label} className="flex items-center gap-2 text-sm font-medium text-white xl:text-base">
               <Icon aria-hidden="true" size={20} className="shrink-0 text-brand-300" />
               {label}
             </li>
