@@ -135,3 +135,7 @@ src/
     sections/          Hero, Stats, Treatments, HowItWorks, Specialists, Financing, Facilities, Testimonials, Faq, BookingForm, FinalCta
 index.html             plantilla del <head>; vite.config.ts inyecta clinic.seo en los marcadores %CLINIC_*%
 ```
+
+## Licencia
+
+Consulta LICENSE.md para los términos de uso.
