@@ -23,6 +23,27 @@ function clinicHtml() {
   }
 }
 
+// Genera robots.txt con la URL de src/config/clinic.ts (sin hardcodear). Descomenta Sitemap al publicar sitemap.xml.
+function clinicRobots() {
+  const body = `User-agent: *\nAllow: /\n\n# Sitemap: ${new URL('/sitemap.xml', clinic.seo.siteUrl).href}\n`
+  return {
+    name: 'clinic-robots',
+    configureServer(server: {
+      middlewares: {
+        use: (path: string, fn: (req: unknown, res: { setHeader: (k: string, v: string) => void; end: (b: string) => void }) => void) => void
+      }
+    }) {
+      server.middlewares.use('/robots.txt', (_req, res) => {
+        res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+        res.end(body)
+      })
+    },
+    generateBundle(this: { emitFile: (f: { type: 'asset'; fileName: string; source: string }) => void }) {
+      this.emitFile({ type: 'asset', fileName: 'robots.txt', source: body })
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), clinicHtml()],
+  plugins: [react(), tailwindcss(), clinicHtml(), clinicRobots()],
 })

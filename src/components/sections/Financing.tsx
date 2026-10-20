@@ -9,28 +9,34 @@ export function Financing({ tone }: { tone: SectionTone }) {
   const hasPartners = f.partners.length > 0
   return (
     <Section id={f.id} tone={tone} labelledBy={`${f.id}-titulo`}>
-      <Card className={`grid gap-8 p-6 sm:p-10 lg:gap-12 xl:p-14 ${hasPartners ? 'lg:grid-cols-2' : ''}`}>
-        <div>
-          <h2 id={`${f.id}-titulo`} className="text-4xl font-semibold sm:text-5xl">
-            {f.title}
-          </h2>
-          <p className="mt-4 text-lg text-ink-soft">{f.description}</p>
-          <ul className="mt-6 space-y-3">
-            {f.benefits.map((benefit) => (
-              <li key={benefit} className="flex items-center gap-3 font-medium">
-                <Check aria-hidden="true" size={20} className="shrink-0 text-brand-700" />
-                {benefit}
-              </li>
-            ))}
-          </ul>
-        </div>
+      <Card className="p-6 sm:p-10 xl:p-14">
+        <h2 id={`${f.id}-titulo`} className="text-4xl font-semibold sm:text-5xl">
+          {f.title}
+        </h2>
+        <p className="mt-4 text-lg text-ink-soft">{f.description}</p>
+        <ul className="mt-6 space-y-3">
+          {f.benefits.map((benefit) => (
+            <li key={benefit} className="flex items-center gap-3 font-medium">
+              <Check aria-hidden="true" size={20} className="shrink-0 text-brand-700" />
+              {benefit}
+            </li>
+          ))}
+        </ul>
         {hasPartners && (
-          <div>
+          <div className="mt-8">
             <h3 className="font-sans text-sm font-semibold uppercase tracking-wider text-brand-700">{f.partnersTitle}</h3>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3">
+            <ul className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
               {f.partners.map((partner) => (
-                <li key={partner} className="rounded-2xl border border-brand-100 bg-brand-50 px-4 py-3 font-semibold text-ink">
-                  {partner}
+                <li key={partner.name} className="flex h-24 items-center justify-center overflow-hidden rounded-2xl border border-brand-100 bg-white p-6 xl:h-28">
+                  <img
+                    src={partner.logo}
+                    alt={partner.alt}
+                    width={partner.width}
+                    height={partner.height}
+                    loading="lazy"
+                    className="h-full w-full object-contain"
+                    style={partner.logoScale ? { transform: `scale(${partner.logoScale})` } : undefined}
+                  />
                 </li>
               ))}
             </ul>

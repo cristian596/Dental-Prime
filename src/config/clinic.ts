@@ -44,6 +44,17 @@ export interface FinalCta {
   ctaLabel: string
 }
 
+export interface FinancingPartner {
+  name: string
+  /** Ruta del logo dentro de public/. */
+  logo: string
+  alt: string
+  /** Zoom del logo (1 = tamaño original). Súbelo si el archivo tiene mucho margen interno. */
+  logoScale?: number
+  width: number
+  height: number
+}
+
 export interface Financing {
   /** false: la sección no se renderiza. */
   enabled: boolean
@@ -52,7 +63,7 @@ export interface Financing {
   description: string
   benefits: string[]
   partnersTitle: string
-  partners: string[]
+  partners: FinancingPartner[]
   disclaimer: string
 }
 
@@ -189,8 +200,13 @@ export const clinic = {
     description: 'Consulta opciones de pago pensadas para que cuidar tu sonrisa se ajuste a tu presupuesto.',
     benefits: ['Cuotas flexibles', 'Trámite sencillo', 'Asesoría en tu valoración'],
     partnersTitle: 'Entidades aliadas',
-    // EJEMPLO: reemplazar por datos reales del cliente (lista vacía oculta la columna de aliados)
-    partners: ['Aliado financiero 1', 'Aliado financiero 2', 'Aliado financiero 3'],
+    // EJEMPLO: reemplazar por los aliados reales del cliente. Los logos son de marcas reales: confirmar permiso de uso o quitarlos.
+    // Lista vacía oculta el bloque de logos.
+    partners: [
+      { name: 'ADDI', logo: '/images/addi.webp', alt: 'Logo de ADDI', width: 1760, height: 990 },
+      { name: 'Sistecrédito', logo: '/images/sistecredito.webp', alt: 'Logo de Sistecrédito', logoScale: 1.6, width: 554, height: 554 },
+      { name: 'Banco de Bogotá', logo: '/images/banco%20de%20bogota.webp', alt: 'Logo de Banco de Bogotá', logoScale: 1.6, width: 424, height: 309 },
+    ],
     disclaimer: 'La aprobación del financiamiento depende de la evaluación de cada entidad financiera. Sujeto a condiciones.',
   } as Financing,
 

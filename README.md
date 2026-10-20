@@ -37,6 +37,7 @@ Además:
 - [ ] `stats`: "pacientes atendidos" es inventado; las otras cifras se calculan de `src/data/`. Con `value: ''` una cifra se oculta.
 - [ ] `faq`: preguntas y respuestas con los precios, tiempos y políticas reales.
 - [ ] `financing`: `benefits`, `partners` (aliados) y `disclaimer`.
+  > Los logos de ADDI, Sistecrédito y Banco de Bogotá son de marcas reales y se muestran solo como ejemplo. Antes de publicar, reemplázalos por tus propios aliados, con permiso de uso, o elimina la lista de aliados en `clinic.ts`.
 
 ### `src/data/`
 
@@ -57,7 +58,7 @@ Además:
 | Tratamientos | `treatments: []` en `src/data/treatments.ts`. |
 | Cómo funciona | `howItWorks.steps: []` en `clinic.ts`. |
 | Especialistas | `specialists: []` en `src/data/specialists.ts`. |
-| Financiamiento | `clinic.financing.enabled = false`. Con `partners: []` se oculta solo la columna de aliados. |
+| Financiamiento | `clinic.financing.enabled = false`. Con `partners: []` se oculta solo el bloque de logos de aliados. |
 | Instalaciones | `facilities: []` en `src/data/facilities.ts`. |
 | Testimonios | `testimonials: []` en `src/data/testimonials.ts`. |
 | Preguntas frecuentes | `faq: []` en `clinic.ts`. |
