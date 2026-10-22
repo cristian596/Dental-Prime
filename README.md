@@ -1,163 +1,270 @@
 # Plantilla de landing para clínicas dentales
 
-Landing de una sola página lista para personalizar y publicar. Stack: Vite + React + TypeScript + Tailwind CSS. No tiene backend: el formulario abre WhatsApp con el mensaje ya escrito.
+Landing de una sola página para clínicas dentales. Incluye hero, tratamientos, especialistas, instalaciones, financiamiento, cómo funciona, testimonios, preguntas frecuentes, contacto con formulario que abre WhatsApp y banda final. Está hecha con React, Vite, TypeScript y Tailwind CSS. No necesita base de datos ni servidor: al compilarla se obtiene la carpeta `dist/`, lista para publicar.
 
-> **Todo el contenido que trae es de ejemplo** (nombre "AQUÍ VA TU MARCA", teléfonos, dirección, cifras, preguntas, testimonios, fotos…). En el código está marcado con el comentario `EJEMPLO`. Busca `EJEMPLO` en el proyecto para encontrar todo lo que debes reemplazar.
+> **Todos los textos y datos son de ejemplo y deben reemplazarse.** La marca aparece como **"AQUÍ VA TU MARCA"**. En el código, el contenido de muestra está marcado con el comentario `EJEMPLO`: busca esa palabra en el proyecto para encontrar todo lo que debes cambiar.
+
+---
+
+## 1. Requisitos
+
+- **Node.js 24** (el archivo `.nvmrc` lo indica). Verifica tu versión con `node -v`.
+- **npm** (viene con Node.js).
+
+## 2. Instalación y prueba local
+
+Abre una terminal en la carpeta del proyecto y ejecuta:
 
 ```bash
 npm install
-npm run dev      # desarrollo en http://localhost:5173
-npm run build    # compila a dist/
-npm run lint
+npm run dev
 ```
 
-## a) Qué incluye la plantilla
+La web queda en **http://localhost:5173/**. Los cambios que guardes se ven al instante. Para detenerla: `Ctrl + C`.
 
-Secciones, en este orden: Hero con enlaces de confianza, cifras, tratamientos por categoría, cómo funciona, especialistas, financiamiento (opcional), instalaciones, testimonios, preguntas frecuentes, formulario de cita con mapa y horarios, banda final con llamada a la acción, pie de página y botón flotante de WhatsApp.
+## 3. Comandos
 
-Además:
-
-- SEO básico (título, descripción, Open Graph y canonical) tomado de `clinic.seo`.
-- Diseño adaptable a móvil, tableta y escritorio, sin scroll horizontal.
-- Las secciones sin datos se ocultan solas, y los fondos alternos (blanco / azul claro) se reacomodan sin huecos.
-- Los componentes de `src/components/` no contienen textos del cliente: no hace falta tocarlos.
-
-## b) Lista de verificación para reemplazar datos
-
-### `src/config/clinic.ts`
-
-- [ ] `name` y `tagline`: nombre y eslogan de la clínica.
-- [ ] `whatsappNumber` (formato internacional, solo dígitos, sin `+`: Colombia `573001234567`, México `5215512345678`), `whatsappDefaultMessage`, `phoneDisplay`.
-- [ ] `address` (`street`, `city`, `mapUrl`) y `hours`.
-- [ ] `mapEmbedUrl`: en Google Maps, Compartir > Insertar un mapa, y copia el `src` del iframe. Déjalo en `''` para mostrar solo la dirección y el enlace a Maps.
-- [ ] `socials`: redes sociales. Lista vacía oculta la columna del pie de página.
-- [ ] `seo`: `title`, `description`, `siteUrl` (el dominio real) y `ogImage`.
-- [ ] `hero`: título, subtítulo, imagen y su `alt`.
-- [ ] `trustPoints`, `treatments.categories`, `howItWorks.steps`, `finalCta`, `booking`, `footer` y demás textos de cada sección.
-- [ ] `stats`: "pacientes atendidos" es inventado; las otras cifras se calculan de `src/data/`. Con `value: ''` una cifra se oculta.
-- [ ] `faq`: preguntas y respuestas con los precios, tiempos y políticas reales.
-- [ ] `financing`: `benefits`, `partners` (aliados) y `disclaimer`.
-  > Los logos de ADDI, Sistecrédito y Banco de Bogotá son de marcas reales y se muestran solo como ejemplo. Antes de publicar, reemplázalos por tus propios aliados, con permiso de uso, o elimina la lista de aliados en `clinic.ts`.
-
-### `src/data/`
-
-- [ ] `specialists.ts`: nombre, especialidad, años de experiencia (el número de ejemplo es 10 en todos), foto y `alt`.
-- [ ] `treatments.ts`: nombre, descripción, categoría (debe coincidir con un `id` de `clinic.treatments.categories`), icono de [lucide-react](https://lucide.dev/icons) e imagen.
-- [ ] `facilities.ts`: fotos de las instalaciones y su `alt`.
-- [ ] `testimonials.ts`: solo testimonios reales y con autorización del paciente.
-
-### `public/images/`
-
-- [ ] Reemplaza todas las fotos (ver la sección e y las fotos con marca en la sección f). Los archivos de especialistas se llaman `especialista-ejemplo-N.webp`; si usas otros nombres, actualiza las rutas en `src/data/`.
-
-## c) Cómo activar o desactivar cada sección
-
-| Sección | Cómo se oculta |
+| Comando | Qué hace |
 | --- | --- |
-| Cifras | Deja `value: ''` en cada cifra, o `stats: []`. |
-| Tratamientos | `treatments: []` en `src/data/treatments.ts`. |
-| Cómo funciona | `howItWorks.steps: []` en `clinic.ts`. |
-| Especialistas | `specialists: []` en `src/data/specialists.ts`. |
-| Financiamiento | `clinic.financing.enabled = false`. Con `partners: []` se oculta solo el bloque de logos de aliados. |
-| Instalaciones | `facilities: []` en `src/data/facilities.ts`. |
-| Testimonios | `testimonials: []` en `src/data/testimonials.ts`. |
-| Preguntas frecuentes | `faq: []` en `clinic.ts`. |
-| Mapa | `mapEmbedUrl: ''`. |
+| `npm run dev` | Servidor local de desarrollo. |
+| `npm run build` | Revisa los tipos y compila la web. El resultado queda en `dist/`. |
+| `npm run preview` | Muestra `dist/` tal como se vería publicado, por defecto en http://localhost:4173/. Ejecuta antes `npm run build`. |
+| `npm run lint` | Revisa el código en busca de errores. |
 
-Al ocultar una sección, su enlace del menú desaparece y los fondos alternos se recalculan. La rejilla se adapta a la cantidad: especialistas de 1 a 4 o más, testimonios de 1 a 3 o más, instalaciones de 1 a 3 fotos (se muestran como máximo tres), cifras de 1 a 4.
+## 4. Mapa de archivos
 
-## d) Cómo cambiar colores y fuentes
+| Qué quieres cambiar | Dónde está |
+| --- | --- |
+| Datos de la clínica, enlaces, cifras, preguntas frecuentes, financiamiento, dirección, mapa y SEO | `src/config/clinic.ts` |
+| Tratamientos | `src/data/treatments.ts` |
+| Especialistas | `src/data/specialists.ts` |
+| Instalaciones | `src/data/facilities.ts` |
+| Testimonios | `src/data/testimonials.ts` |
+| Fotos y logos | `public/images/` |
+| Ícono de la pestaña | `public/favicon.svg` |
+| Políticas legales | `politica-de-privacidad.html`, `politica-de-tratamiento-datos.html`, `politica-de-cookies.html` (en la raíz del proyecto) |
+| Colores y fuentes | `src/index.css` (bloque `@theme`) y `index.html` (enlace de Google Fonts) |
+| Google Analytics | Variable `VITE_GA_ID` (ver `.env.example`) |
+| Cabeceras de seguridad y caché | `public/_headers` |
+| Licencia | `LICENSE.md` |
 
-En `src/index.css`, dentro de `@theme`:
+Los componentes de `src/components/` no contienen textos del cliente: no hace falta tocarlos.
 
-- `--color-brand-50 … 900`: escala del color de marca (azul por defecto).
-- `--color-ink` y `--color-ink-soft`: colores de texto.
-- `--font-serif` (títulos) y `--font-sans` (texto).
+---
 
-Para cambiar tipografías, elige las nuevas en [Google Fonts](https://fonts.google.com) y actualiza los dos enlaces `fonts.googleapis.com` de `index.html`.
+## 5. Cómo cambiar la marca
 
-Los botones usan `brand-700` y no `brand-500` porque el texto blanco sobre un tono claro no cumple el contraste WCAG AA. Si cambias la paleta, mantén `brand-700` lo bastante oscuro.
+Casi todo se cambia en **`src/config/clinic.ts`**. Cambia el valor entre comillas y guarda.
 
-## e) Cómo reemplazar las fotos sin tocar código
+| Campo | Qué es |
+| --- | --- |
+| `name` | Nombre de la clínica. Aparece en el logo, el pie de página, las descripciones de imágenes y el mapa. |
+| `tagline` | Eslogan. |
+| `whatsappNumber` | Número en formato internacional, **solo dígitos**, sin `+` ni espacios (Colombia: `57` + número). |
+| `whatsappDefaultMessage` y `phoneDisplay` | Mensaje inicial de WhatsApp y teléfono tal como se muestra. |
+| `address` | `street` (calle), `city` (ciudad) y `mapUrl` (enlace a Google Maps). |
+| `seo.siteUrl` | **Dominio** final de la web, con `https://`. Ver sección 10. |
 
-Sustituye los archivos de `public/images/` **conservando el mismo nombre** y de preferencia el formato `.webp`:
+**Ejemplo, antes y después** (clínica ficticia):
 
-- `hero.webp` (~1456×816, la imagen principal).
-- Especialistas: `especialista-ejemplo-1.webp` … `especialista-ejemplo-4.webp` (proporción 4:5, ~600×750).
-- Instalaciones: `Kennedy.webp`, `Teusaquillo.webp`, `Norte.webp` (4:3, ~800×600).
-- Tratamientos: `tratamiento-*.webp` (4:3, ~1232×928).
+```ts
+// Antes
+const clinicName = 'AQUÍ VA TU MARCA'
+tagline: 'Sonrisas que transforman vidas',
+whatsappNumber: '573001234567',
+street: 'Calle 123 #45-67, Consultorio 801',
+siteUrl: 'https://www.ejemplo-aqui-va-tu-marca.com',
 
-Si prefieres nombres propios o más fotos, actualiza la ruta y el `alt` en `clinic.ts` (hero) o en `src/data/`. Escribe siempre un `alt` descriptivo. La imagen para redes sociales (Open Graph) es `clinic.seo.ogImage`.
-
-> **Importante sobre las fotos de ejemplo:** las fotos de especialistas, instalaciones y tratamientos incluidas son de muestra. Deben reemplazarse por fotos del comprador, con su permiso por escrito (y el de las personas que aparecen), o por imágenes con licencia. No publiques la plantilla con las fotos de ejemplo.
-
-## f) Antes de publicar
-
-> Esta plantilla no sustituye asesoría legal ni sanitaria. Verifica los requisitos vigentes en tu país.
-
-- [ ] **a) Habilitación y registros:** confirmar la habilitación de la Secretaría de Salud correspondiente y los registros de cada profesional. No muestres títulos o especialidades que no puedas acreditar.
-- [ ] **b) Protección de datos:** publicar las políticas legales (en Colombia, Ley 1581 de 2012; ver la sección "Políticas legales") y poner sus URL en `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl` de `src/config/clinic.ts`. El formulario no guarda datos (abre WhatsApp), pero la clínica trata los que reciba por ese chat.
-- [ ] **c) Fotos:** contar con permiso escrito de cada persona retratada o usar imágenes con licencia. Esto incluye especialistas, instalaciones, tratamientos y hero.
-- [ ] **d) Precios y financiamiento:** confirmar que los aliados y condiciones son reales y que autorizaron el uso de su nombre. Revisa también precios, plazos y promociones de las preguntas frecuentes. Si no hay convenios, desactiva la sección (`financing.enabled = false`).
-- [ ] **e) Marca:** reemplazar el nombre, el logo y los colores (el logo actual es el nombre en texto y `public/favicon.svg`).
-- [ ] Testimonios reales y con autorización escrita de los pacientes.
-- [ ] Teléfono, WhatsApp, dirección, horarios y redes probados uno por uno.
-
-### Fotos de ejemplo que contienen la marca
-
-Algunas imágenes de ejemplo muestran un letrero con el nombre de marca de prueba. Reemplázalas por fotos del cliente.
-
-Estas imágenes muestran ese letrero y deben cambiarse antes de publicar:
-
-- `public/images/Kennedy.webp`: reemplazar: muestra la marca de ejemplo (letrero grande).
-- `public/images/Teusaquillo.webp`: reemplazar: muestra la marca de ejemplo.
-- `public/images/Norte.webp`: reemplazar: muestra la marca de ejemplo.
-- `public/images/hero.webp`: reemplazar: muestra la marca de ejemplo.
-
-## Estructura
-
-```
-src/
-  config/clinic.ts     datos y textos de la clínica
-  data/                tratamientos, especialistas, instalaciones, testimonios
-  lib/sections.ts      qué secciones se muestran según los datos
-  lib/whatsapp.ts      buildWhatsAppUrl(numero, mensaje)
-  lib/consent.ts       lectura/escritura del consentimiento de cookies
-  lib/analytics.ts     loadAnalytics() (Google Analytics solo con consentimiento)
-  components/
-    layout/            Navbar, Footer, FloatingWhatsApp
-    ui/                Button, SectionTitle, Card, Container, Section, Accordion
-    sections/          Hero, Stats, Treatments, HowItWorks, Specialists, Financing, Facilities, Testimonials, Faq, BookingForm, FinalCta
-index.html             plantilla del <head>; vite.config.ts inyecta clinic.seo en los marcadores %CLINIC_*%
+// Después
+const clinicName = 'Clínica Dental Sonríe'
+tagline: 'Tu salud oral, en buenas manos',
+whatsappNumber: '573109876543',
+street: 'Carrera 15 #85-20, Consultorio 302',
+siteUrl: 'https://www.clinicasonrie.com',
 ```
 
-## Licencia
+Otros textos del mismo archivo: horarios (`hours`), redes sociales (`socials`, lista vacía oculta la columna), `seo` (título y descripción en Google y al compartir el enlace) y los textos de cada sección.
 
-Consulta LICENSE.md para los términos de uso. Incluye la licencia de sitio único, las condiciones de garantía y soporte, y el tope de responsabilidad.
+**Lo que no lee `clinic.ts` y debes cambiar a mano:**
 
-## Políticas legales
+- `package.json`: campo `name` (solo minúsculas y guiones, por ejemplo `clinica-sonrie`).
+- `public/favicon.svg`: el ícono de la pestaña. Reemplázalo por tu logo en SVG.
+- `index.html`: el título, la descripción y los datos para redes salen de `clinic.ts`, así que normalmente no hay que editarlo. Solo tócalo si agregas textos fijos propios.
 
-- **Páginas** (plantillas en español, en la raíz del proyecto):
-  - `politica-de-privacidad.html`
-  - `politica-de-tratamiento-datos.html`
-  - `politica-de-cookies.html`
+---
 
-  Reemplaza los marcadores entre corchetes (`[NOMBRE DE LA CLÍNICA]`, `[NIT O IDENTIFICACIÓN]`, `[DIRECCIÓN]`, `[CORREO DE CONTACTO]`, `[TELÉFONO]`, `[PLAZO DE RESPUESTA]`, `[FECHA]`, `[PERIODO DE CONSERVACIÓN]`…). Búscalos con `[`.
-- **Enlaces:** se configuran en `src/config/clinic.ts` con `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl`. El footer muestra los que tengan valor; `treatmentPolicyUrl` también alimenta la casilla del formulario. Si publicas las políticas en otra URL, cámbialas ahí.
-- **Banner de cookies:** aparece hasta que el visitante acepta o rechaza (clave `dp_cookie_consent` en localStorage). El botón "Configurar cookies" del footer lo vuelve a abrir. Los textos están en `clinic.cookieBanner`.
-- **Google Analytics:** copia `.env.example` a `.env`, y pon tu ID de medición en `VITE_GA_ID=G-XXXXXXXXXX` (se lee al compilar). Con el ID vacío no se carga nada. El script de gtag solo se añade si el visitante aceptó; si rechaza no se carga ni se guardan cookies de analítica. `.env` y `.env.local` están en `.gitignore`.
+## 6. Cómo cambiar cada sección
 
-## Responsabilidad del comprador
+Las secciones sin datos se ocultan solas, su enlace del menú desaparece y los fondos alternos (blanco y azul claro) se reacomodan sin huecos.
 
-Las políticas incluidas son plantillas de ejemplo. Antes de publicar, completa los marcadores, revísalas con tu abogado y asegúrate de que reflejan tu negocio. El responsable del tratamiento de datos es tu clínica, no el autor de la plantilla.
+### Hero (portada)
 
-## Despliegue en Cloudflare Pages
+- **Texto**: `hero.title` y `hero.subtitle` en `clinic.ts`.
+- **Botones**: el principal usa `nav.cta` (por defecto "Agenda tu valoración"). El secundario abre WhatsApp y su texto es `hero.whatsappLabel`.
+- **Imagen**: `public/images/hero.webp`; la ruta y el texto alternativo están en `hero.image`. Usa una foto **apaisada (horizontal), de al menos 2400 px de ancho**; la actual mide 1456 × 816 px. Si cambias la proporción, ajusta `width` y `height` de la etiqueta `<img>` en `src/components/sections/Hero.tsx`.
+- Formato recomendado: WebP, idealmente por debajo de 300 KB.
 
-1. Conecta el repositorio en Cloudflare Pages.
-2. Comando de build: `npm run build`.
-3. Directorio de salida: `dist`.
-4. Variable de entorno `VITE_GA_ID`, solo si usarás Google Analytics.
-5. Dominio propio y HTTPS automático desde el panel de Cloudflare.
-6. Si el build falla por la versión de Node, añade la variable de entorno `NODE_VERSION` con valor `24` en la configuración del proyecto.
+### Tratamientos
 
-Antes, ajusta `clinic.seo.siteUrl` al dominio real. `.nvmrc` fija la versión de Node y `public/_headers` aplica las cabeceras de seguridad y la caché de `/images/*`.
+- **Categorías**: `treatments.categories` en `clinic.ts` (cada una con `id`, `title` y `description`).
+- **Tratamientos**: `src/data/treatments.ts`. Cada uno tiene `id`, `name`, `description`, `category`, `icon` e `image`.
+  - `category` debe coincidir con el `id` de una categoría.
+  - `icon` es un ícono de [lucide](https://lucide.dev/icons).
+  - `image`: guarda la foto en `public/images/` y escribe su ruta en `src`, por ejemplo `/images/tratamiento-brackets.webp`, con un `alt` que describa lo que se ve. Si un tratamiento no tiene imagen, se muestra con su ícono.
+- Para ocultar la sección: `treatments = []`.
+
+### Especialistas
+
+`src/data/specialists.ts`: nombre, especialidad, años de experiencia (`yearsExperience`) y foto (`photo`). Las fotos deben ser **del cliente, con su permiso por escrito, o de un banco de imágenes con licencia**. No uses fotos de personas reales sin permiso. La rejilla se adapta a 1, 2, 3, 4 o más especialistas. Con la lista vacía la sección se oculta.
+
+### Instalaciones
+
+`src/data/facilities.ts`. Se muestran **como máximo 3 fotos**, en el orden de la lista: la primera sale en grande. Con 1 o 2 fotos la galería se adapta. Con la lista vacía se oculta.
+
+### Financiamiento
+
+Bloque `financing` en `clinic.ts`:
+
+- `enabled: false` oculta toda la sección.
+- `benefits`: lista de beneficios.
+- `partners`: entidades aliadas, con `name`, `logo` (ruta en `public/images/`), `alt`, `badge` (texto corto bajo el logo) y medidas. Lista vacía = se oculta el bloque de logos.
+- `ctaLabel` y `ctaMessage`: texto del botón de consulta y mensaje que abre en WhatsApp.
+- `disclaimer`: nota legal bajo la sección.
+
+> Los logos de ADDI, Sistecrédito y Banco de Bogotá son marcas reales y están solo como ejemplo. Reemplázalos por tus aliados, con su permiso de uso, o quita la lista de aliados.
+
+### Cómo funciona
+
+Bloque `howItWorks` en `clinic.ts`: tres pasos (`steps`) con `title`, `description`, `icon` (`message`, `stethoscope` o `smile`) y `badge` (dato corto, por ejemplo la duración). El segundo paso incluye `firstVisitIncludes`, la lista de lo que incluye la primera consulta. `trustNote` es la línea de confianza bajo los pasos; vacía, no se muestra. Confirma los tiempos y condiciones reales de tu clínica. `steps: []` oculta la sección.
+
+### Testimonios y preguntas frecuentes
+
+- **Testimonios**: `src/data/testimonials.ts`. Cada uno lleva `name`, `treatment`, `text` y `rating` (entero de 1 a 5). Para agregar, copia un bloque `{ … }`; para quitar, bórralo. Usa solo testimonios reales y con autorización del paciente. Lista vacía = la sección no se muestra.
+- **Preguntas frecuentes**: `faq` en `clinic.ts`, con `question` y `answer`. Pon tus precios, tiempos y políticas reales. `faq: []` oculta la sección.
+- La calificación promedio y los años de experiencia de las cifras se calculan solos a partir de testimonios y especialistas.
+
+### Contacto
+
+El formulario (`booking` en `clinic.ts`) pide nombre, teléfono, tratamiento de interés y horario preferido. **No guarda nada**: al enviarlo abre WhatsApp con el mensaje ya armado hacia el número de `whatsappNumber`.
+
+La **casilla de tratamiento de datos** viene **sin marcar** y es **obligatoria**: sin marcarla, el formulario no se envía. Su enlace apunta a `treatmentPolicyUrl`. No la actives por defecto.
+
+`mapEmbedUrl` muestra el mapa. En Google Maps usa Compartir > Insertar un mapa y copia el `src` del iframe. Vacío (`''`) deja solo la dirección y el enlace a Maps.
+
+---
+
+## 7. Colores y tipografía
+
+**Colores.** Están en el bloque `@theme` de `src/index.css`:
+
+- `--color-brand-50` a `--color-brand-900`: escala del color de marca, un **azul** (de `#f4f9fd`, casi blanco, a `#0f2f4a`, azul oscuro).
+- `--color-ink` (`#243447`) y `--color-ink-soft` (`#4a5b6e`): colores de texto.
+
+Los botones usan `brand-700` porque el texto blanco sobre un tono más claro no cumple el contraste de accesibilidad. Si cambias la paleta, mantén `brand-700` lo bastante oscuro.
+
+**Tipografía.** Títulos en **Cormorant Garamond** y texto en **Inter**, cargadas desde Google Fonts. Para cambiarlas:
+
+1. Elige las nuevas en [fonts.google.com](https://fonts.google.com).
+2. En `index.html`, reemplaza el enlace `fonts.googleapis.com` (aparece dos veces: uno normal y otro dentro de `<noscript>`).
+3. En `src/index.css`, cambia `--font-serif` (títulos) y `--font-sans` (texto).
+
+---
+
+## 8. Políticas legales y analítica
+
+**Archivos legales** (plantillas en la raíz del proyecto), con su ruta en la web:
+
+| Archivo | Ruta |
+| --- | --- |
+| `politica-de-privacidad.html` | `/politica-de-privacidad.html` |
+| `politica-de-tratamiento-datos.html` | `/politica-de-tratamiento-datos.html` |
+| `politica-de-cookies.html` | `/politica-de-cookies.html` |
+
+Reemplaza los marcadores entre corchetes (`[NOMBRE DE LA CLÍNICA]`, `[NIT O IDENTIFICACIÓN]`, `[DIRECCIÓN]`, `[CORREO DE CONTACTO]`, `[TELÉFONO]`, `[FECHA]`, `[PERIODO DE CONSERVACIÓN]`, etc.). Búscalos con `[`.
+
+**Plazos de la Ley 1581 de 2012.** En `politica-de-tratamiento-datos.html` el marcador `[PLAZO DE RESPUESTA]` aparece dos veces. Cámbialo así:
+
+- En la sección de **consultas**: *10 días hábiles*.
+- En la sección de **reclamos**: *15 días hábiles*.
+
+**Enlaces.** En `src/config/clinic.ts`: `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl`. El pie de página muestra los que tengan valor (vacío = se oculta); `treatmentPolicyUrl` también alimenta el enlace de la casilla del formulario. Si publicas las políticas en otra dirección, cámbialas ahí.
+
+**Banner de cookies.** Aparece hasta que el visitante elige. **Aceptar** y **Rechazar** tienen el mismo tamaño y aspecto. La elección se guarda en el navegador (clave `dp_cookie_consent`) y el botón "Configurar cookies" del pie de página lo vuelve a abrir. Los textos están en `cookieBanner` de `clinic.ts`.
+
+**Google Analytics (opcional).**
+
+1. Crea una propiedad de Google Analytics 4 con una cuenta **de la empresa compradora** y copia el ID de medición (`G-XXXXXXXXXX`).
+2. Copia `.env.example` como `.env` y escribe `VITE_GA_ID=G-XXXXXXXXXX`. Se lee al compilar. En Cloudflare Pages va como variable de entorno.
+3. Con el ID vacío no se carga nada. Con ID, el script de Google solo se añade si el visitante pulsó **Aceptar**; si rechaza, no se carga ni se guardan cookies de analítica.
+
+> **Aviso legal.** Los textos legales son **plantillas**. El responsable del tratamiento de los datos es la clínica compradora, no el autor de la plantilla. Antes de publicar, **revísalos con tu abogado**. Consulta también si tu clínica debe **registrar sus bases de datos ante la Superintendencia de Industria y Comercio (SIC)**. Más detalle en [GUIA-CUMPLIMIENTO.md](GUIA-CUMPLIMIENTO.md).
+
+---
+
+## 9. Antes de publicar
+
+- [ ] Marca y datos reales en `src/config/clinic.ts` (busca `EJEMPLO`).
+- [ ] Fotos reales o con licencia. Reemplaza las de ejemplo y las que muestran el letrero "AQUÍ VA TU MARCA": `hero.webp`, `Kennedy.webp`, `Teusaquillo.webp` y `Norte.webp` en `public/images/`.
+- [ ] Logos de financiamiento con permiso de uso, o sección desactivada.
+- [ ] Políticas completadas (sin corchetes) y revisadas por un abogado.
+- [ ] Probar el formulario y el enlace de WhatsApp con un número propio.
+- [ ] Probar en el móvil: menú, formulario, banner de cookies y botón flotante de WhatsApp.
+- [ ] Confirmar que la casilla de tratamiento de datos va sin marcar.
+- [ ] `siteUrl` con el dominio definitivo.
+- [ ] `npm run build` sin errores.
+
+---
+
+## 10. Dominio y publicación en Cloudflare Pages
+
+**Dominio.** La dirección final se escribe en `seo.siteUrl` de `clinic.ts` (con `https://`). Se usa en la etiqueta canonical, en la imagen para compartir y en `robots.txt`. Puedes empezar con la dirección gratuita de Cloudflare Pages (`nombre.pages.dev`) y cambiarla después.
+
+**Configuración de build:**
+
+- Comando: `npm run build`
+- Directorio de salida: `dist`
+
+**Variables de entorno:** `VITE_GA_ID` solo si usas Google Analytics. Si el build falla por la versión de Node, agrega `NODE_VERSION` con valor `24`.
+
+**Dominio propio:** cómpralo a nombre de la empresa compradora, agrégalo en **Custom domains** del proyecto de Cloudflare Pages y actualiza `siteUrl` en `clinic.ts`. El HTTPS se activa solo. Los pasos detallados están en [DESPLIEGUE-CLOUDFLARE.md](DESPLIEGUE-CLOUDFLARE.md).
+
+**Cabeceras y caché:** `public/_headers` define las cabeceras de seguridad y mantiene en caché por un año las imágenes de `/images/`; Cloudflare Pages lo lee solo.
+
+---
+
+## 11. Cómo enviar el sitio a Google
+
+1. Entra a [Google Search Console](https://search.google.com/search-console) y agrega la propiedad con la dirección completa (por ejemplo `https://www.clinicasonrie.com/`).
+2. Verifica que eres el dueño con el método que Google te indique.
+3. En **Inspección de URLs**, pega la dirección de la página principal y pulsa **Solicitar indexación**.
+4. Google tarda de unos días a un par de semanas en mostrar la web.
+
+La plantilla no incluye `sitemap.xml`, así que no hay mapa del sitio que enviar. El archivo `robots.txt` se genera solo al compilar y permite que Google rastree todo el sitio.
+
+Para aparecer en Google Maps y en búsquedas locales, crea un perfil gratuito en [Google Business Profile](https://www.google.com/business/) con los mismos datos de contacto.
+
+---
+
+## 12. Cómo gestionar las solicitudes
+
+Cada solicitud del formulario y cada clic en los botones de WhatsApp llega como un mensaje al número de `whatsappNumber` en `clinic.ts`.
+
+- Instala la app gratuita **WhatsApp Business** en el teléfono de la clínica y registra ese número. Te da perfil de empresa, etiquetas y respuestas rápidas.
+- **Etiquetas sugeridas:** Nueva, Valoración agendada, Tratamiento aceptado, No avanzó. Para crearlas: *Más opciones (⋮) → Herramientas de empresa → Etiquetas*.
+- **Respuestas rápidas sugeridas:** confirmar cita, pedir datos, enviar indicaciones previas. Se crean en *Herramientas de empresa → Respuestas rápidas*.
+- **La plantilla no guarda datos.** Cada mensaje va directo al WhatsApp de la clínica y no pasa por ningún servidor. Si necesitas un registro, llévalo en tu propia hoja de cálculo.
+
+---
+
+## 13. Licencia y soporte
+
+Los términos completos están en [LICENSE.md](LICENSE.md). Resumen: licencia de **sitio único**; soporte gratuito de **6 meses** desde la entrega, con respuesta en **48 horas hábiles**; el mantenimiento posterior se contrata por separado. La jurisdicción y el centro de conciliación están en **Facatativá, Cundinamarca**.
+
+---
+
+## 14. Problemas comunes
+
+- **El build falla.** Lee el mensaje: indica el archivo y la línea. Casi siempre es una comilla, llave o coma que falta en el archivo que editaste.
+- **Un cambio no aparece.** Detén `npm run dev` con `Ctrl + C`, vuelve a ejecutarlo y recarga la página con `Ctrl + F5`.
+- **Un comando no funciona.** Verifica `node -v` (debe ser 24) y que la terminal esté dentro de la carpeta del proyecto.
+- **La web publicada se ve mal tras un cambio.** En Cloudflare Pages, pestaña *Deployments*, restaura un despliegue anterior.
