@@ -1,72 +1,94 @@
-# Licencia de uso de la plantilla AQUÍ VA TU MARCA
+# LICENCIA DE USO COMERCIAL Y TÉRMINOS DE VENTA DE PLANTILLAS Y DESARROLLOS WEB (LANDING PAGES)
 
-## 1. Público objetivo
+**Última actualización:** 21/10/2026
+**Aplica para:** Colombia  
 
-Esta plantilla se comercializa bajo un modelo de negocio a negocio (B2B), dirigida a diseñadores, desarrolladores, agencias y empresarios independientes que la usen para su actividad comercial o profesional. Al adquirir una licencia, el Comprador confirma que la compra corresponde a su actividad profesional o comercial.
+---
 
-## 2. Definiciones
+### DEFINICIONES
+*   **Titular:** Cristian Camilo Higuera Carrillo, autor y comercializador de la plantilla.
+*   **Cliente:** la persona natural o jurídica que adquiere la licencia.
+*   **Plantilla landing page:** el código fuente, diseño, textos de ejemplo, imágenes y políticas de ejemplo que se entregan con la licencia.
 
-- **Plantilla:** el código, diseño, textos de ejemplo e imágenes que forman el proyecto.
-- **Titular:** Cristian Camilo Higuera Carrillo
-- **Comprador:** la persona natural o jurídica que adquiere una licencia.
-- **Sitio:** una web publicada con la plantilla, con un dominio propio.
+---
 
-## 3. Tipos de licencia
+### 1. PARTES Y OBJETO DEL CONTRATO
+El presente documento regula los términos y condiciones de venta, licenciamiento de software y derechos de autor aplicables al desarrollo web tipo *Landing Page*, comercializado por el titular, a favor del comprador o adquirente.
 
-### Licencia Individual
+Al adquirir, descargar, instalar o desplegar la plantilla landing page, EL CLIENTE acepta expresamente las condiciones contenidas en este contrato.
 
-- Permite usar la plantilla en un solo sitio, para un único negocio o clínica, propiedad del Comprador o de su cliente final.
-- Si el Comprador construye el sitio para un cliente, la licencia se entrega a ese cliente solo para ese sitio.
+---
 
-### Licencia Múltiple
+### 2. NATURALEZA DE LA LICENCIA (PROPIEDAD INTELECTUAL)
+De conformidad con la Ley 23 de 1982 y la Decisión Andina 351 de 1993 sobre Derechos de Autor:
 
-- Permite usar la plantilla en varios sitios, uno por cada cliente o negocio distinto, sin límite de sitios.
-- Cada sitio debe publicarse con un dominio distinto.
+*   **Propiedad Intelectual:** El titular conserva en todo momento la titularidad de los derechos morales y patrimoniales de autor sobre el código fuente original, diseño, estructura, componentes visuales y scripts desarrollados en la plantilla landing page.
+*   **Concesión de Licencia:** Salvo que se firme un contrato explícito de cesión de derechos patrimoniales a medida, la compra otorga a EL CLIENTE una **Licencia de Uso No Exclusiva, Intransferible y Limitada**.
 
-## 4. Lo que sí está permitido
+#### Modalidad de Licencia:
+*   **Licencia Sitio Único (Single-Use):** Permite implementar la plantilla landing page en un único dominio o subdominio en la web.
 
-- Modificar, adaptar y personalizar la plantilla.
-- Publicar los sitios resultantes en internet.
-- Cobrar a los clientes por el diseño, la instalación o el mantenimiento de sus sitios.
+---
 
-## 5. Lo que no está permitido
+### 3. RESTRICCIONES Y PROHIBICIONES
+Queda estrictamente prohibido a EL CLIENTE:
+1. Revender, alquilar, sublicenciar, redistribuir o regalar el código fuente original o sus modificaciones a terceros fuera del alcance autorizado en este contrato.
+2. Extraer partes del código, componentes o bibliotecas para integrarlos en paquetes comerciales competidores.
+3. Utilizar la plantilla landing page para alojar contenido ilegal, fraudulento, no autorizado o violatorio de la legislación colombiana.
 
-- Revender, redistribuir o publicar la plantilla o sus archivos fuente como producto propio, en marketplaces o por cualquier otro medio.
-- Compartir el código fuente con personas que no sean parte de la licencia.
-- Usar la plantilla para crear un generador o producto de plantillas que compita con la original.
-- Usar las imágenes de ejemplo sin reemplazarlas cuando el sitio se publique, si su uso implica riesgo legal (personas reconocibles, marcas ajenas).
+---
 
-## 6. Atribución
+### 4. CUMPLIMIENTO LEGAL PARA EL CLIENTE EN COLOMBIA
+EL CLIENTE asume la responsabilidad legal directa sobre los contenidos presentados en la Landing Page una vez implementada. El titular entrega las herramientas técnicas básicas para el cumplimiento normativo en Colombia, pero no se hace responsable por omisiones o mal uso por parte de EL CLIENTE.
 
-- No es obligatorio mantener un crédito visible en el sitio, salvo que el Titular lo solicite por escrito.
-- Cada sitio debe usar datos y contenido propios del cliente final, no los de ejemplo.
+EL CLIENTE declara conocer que para operar legalmente la Landing Page en Colombia debe:
+1.  **Protección de Datos (Ley 1581 de 2012):** Incluir y vincular su propia *Política de Tratamiento de Datos Personales* en los formularios de captura y mantener casillas de autorización expresas.
+2.  **Publicidad Veraz (Ley 1480 de 2011 - Estatuto del Consumidor):** Garantizar que las promociones, imágenes y ofertas publicadas correspondan a la realidad comercial de su empresa.
+3.  **Cookies e Identificación:** Informar el uso de tecnologías de rastreo y publicar su Razón Social / NIT visible en el sitio web. La plantilla landing page incluye una integración opcional con Google Analytics 4 que solo se activa cuando EL CLIENTE configura su propio ID de medición y que carga el script de Google únicamente después de que el visitante acepta el banner de cookies. La propiedad de Google Analytics debe ser de EL CLIENTE, quien es el responsable del tratamiento de los datos de analítica y de mantener actualizados el banner y sus textos legales.
 
-## 7. Responsabilidad del Comprador
+---
 
-- El Comprador es responsable de cumplir la normativa aplicable a su negocio, incluidas la habilitación sanitaria, la protección de datos personales y el uso de imágenes.
-- La plantilla no sustituye asesoría legal ni sanitaria.
+### 5. GARANTÍA Y SOPORTE TÉCNICO
+*   **Período de Garantía:** El titular otorga una garantía de 60 días calendario a partir de la entrega para corregir errores de código (bugs), enlaces rotos o inconsistencias técnicas atribuibles al diseño original.
+*   **Exclusiones de Garantía:** La garantía quedará sin efecto si los fallos son causados por:
+    *   Modificaciones realizadas al código por parte de EL CLIENTE o terceros no autorizados.
+    *   Cambios de servidor o incompatibilidades en el entorno de hosting donde se instale.
+    *   Cambios en APIs, scripts o librerías de terceros (ej. Google, Meta, servicios de email marketing).
 
-## 8. Garantía y limitación de responsabilidad
+#### Soporte técnico
+*   **Duración:** El titular ofrece soporte gratuito por 6 meses contados desde la entrega.
+*   **Cobertura:** El soporte cubre la corrección de errores originarios del código entregado y los problemas de compatibilidad del código con el entorno de despliegue indicado en la documentación.
+*   **Exclusiones del soporte:** Quedan excluidos:
+    *   Nuevas funcionalidades o rediseños solicitados por EL CLIENTE.
+    *   Fallas causadas por plugins o servicios de terceros instalados después de la entrega.
+    *   Modificaciones al código hechas por EL CLIENTE o por terceros no autorizados.
+    *   Cambios de contenido.
+*   **Tiempo de atención:** 48 horas hábiles para responder cada solicitud.
+*   **Después de los 6 meses:** El mantenimiento y las mejoras son opcionales y se pactan por separado.
 
-- La plantilla se entrega tal cual, sin garantías de resultado comercial ni de compatibilidad con terceros. Lo anterior aplica a las licencias comercializadas conforme a la sección 1 (público objetivo).
-- La responsabilidad total del Titular frente al Comprador por cualquier reclamación derivada del uso de la plantilla no excederá en ningún caso el monto total pagado por el Comprador por la licencia correspondiente.
+---
 
-## 9. Soporte y actualizaciones
+### 6. LIMITACIÓN DE RESPONSABILIDAD
+El titular no responderá por pérdidas financieras, lucro cesante, interrupciones del negocio o perjuicios directos o indirectos derivados del uso o imposibilidad de uso de la plantilla landing page, ni por sanciones impuestas a EL CLIENTE por entes reguladores (como la Superintendencia de Industria y Comercio - SIC) debido al mal manejo de datos o publicidad engañosa.
 
-<!-- Revisar con la página de venta: definir si hay soporte incluido. -->
+La responsabilidad total del titular frente a EL CLIENTE por cualquier reclamación derivada de la plantilla landing page no excederá en ningún caso el valor efectivamente pagado por EL CLIENTE por la licencia.
 
-La licencia no incluye soporte técnico ni actualizaciones futuras, salvo que el Titular lo indique expresamente en la página de venta del producto. Cualquier soporte adicional se ofrece por separado.
+---
 
-## 10. Vigencia
+### 7. JURISDICCIÓN Y LEY APLICABLE
+Este contrato se rige íntegramente por las leyes de la República de Colombia. Cualquier controversia derivada de este contrato será sometida en primera instancia a un arreglo directo entre las partes. De no lograrse un acuerdo en un plazo de quince (15) días hábiles, se acudirá a un Centro de Conciliación autorizado en la ciudad de Facatativá, Cundinamarca, Colombia, de conformidad con las leyes colombianas.
 
-- La licencia es válida mientras el Comprador cumpla estas condiciones. Si la incumple, pierde los derechos de uso sin reembolso.
+---
 
-## 11. Ley aplicable
+### 8. RESPONSABILIDAD SOBRE LOS TEXTOS LEGALES
+Las políticas de privacidad, de tratamiento de datos y de cookies incluidas en la plantilla landing page son textos de ejemplo. El titular no garantiza que cumplan la normativa aplicable al negocio de EL CLIENTE. EL CLIENTE es el único responsable de revisarlos, completarlos y adaptarlos con asesoría legal antes de publicarlos.
 
-- Facatativa - Colombia
+---
 
-## Pendiente de revisión legal
+### 9. CONTACTO DEL TITULAR
 
-> **[BORRADOR, PENDIENTE DE CONFIRMACIÓN LEGAL]** Exclusión del derecho de retracto para contenido digital de entrega inmediata, conforme a la Ley 1480 de 2011. Esta cláusula solo debe incluirse después de confirmar con un abogado la excepción aplicable y de implementar una casilla de aceptación explícita en el proceso de compra.
+- Nombre: Cristian Camilo Higuera Carrillo
+- Correo: camilithopks6@gmail.com
+- Dirección: Facatativá, Cundinamarca, Colombia
 
-Este texto no forma parte de la licencia vigente.
+*Al adquirir, descargar, instalar o desplegar la plantilla landing page, EL CLIENTE acepta expresamente las condiciones contenidas en este contrato.*

@@ -96,7 +96,7 @@ Si prefieres nombres propios o más fotos, actualiza la ruta y el `alt` en `clin
 > Esta plantilla no sustituye asesoría legal ni sanitaria. Verifica los requisitos vigentes en tu país.
 
 - [ ] **a) Habilitación y registros:** confirmar la habilitación de la Secretaría de Salud correspondiente y los registros de cada profesional. No muestres títulos o especialidades que no puedas acreditar.
-- [ ] **b) Protección de datos:** publicar las políticas legales (en Colombia, Ley 1581 de 2012; ver la sección "Páginas legales") y poner sus URL en `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl` de `src/config/clinic.ts`. El formulario no guarda datos (abre WhatsApp), pero la clínica trata los que reciba por ese chat.
+- [ ] **b) Protección de datos:** publicar las políticas legales (en Colombia, Ley 1581 de 2012; ver la sección "Políticas legales") y poner sus URL en `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl` de `src/config/clinic.ts`. El formulario no guarda datos (abre WhatsApp), pero la clínica trata los que reciba por ese chat.
 - [ ] **c) Fotos:** contar con permiso escrito de cada persona retratada o usar imágenes con licencia. Esto incluye especialistas, instalaciones, tratamientos y hero.
 - [ ] **d) Precios y financiamiento:** confirmar que los aliados y condiciones son reales y que autorizaron el uso de su nombre. Revisa también precios, plazos y promociones de las preguntas frecuentes. Si no hay convenios, desactiva la sección (`financing.enabled = false`).
 - [ ] **e) Marca:** reemplazar el nombre, el logo y los colores (el logo actual es el nombre en texto y `public/favicon.svg`).
@@ -113,24 +113,6 @@ Estas imágenes muestran ese letrero y deben cambiarse antes de publicar:
 - `public/images/Teusaquillo.webp`: reemplazar: muestra la marca de ejemplo.
 - `public/images/Norte.webp`: reemplazar: muestra la marca de ejemplo.
 - `public/images/hero.webp`: reemplazar: muestra la marca de ejemplo.
-
-## Páginas legales, cookies y Google Analytics
-
-- **Páginas legales** (plantillas en español, en la raíz del proyecto): `politica-de-privacidad.html`, `politica-de-tratamiento-datos.html` y `politica-de-cookies.html`. Reemplaza los marcadores entre corchetes (`[NOMBRE DE LA CLÍNICA]`, `[NIT O IDENTIFICACIÓN]`, `[DIRECCIÓN]`, `[CORREO DE CONTACTO]`, `[TELÉFONO]`, `[PLAZO DE RESPUESTA]`, `[FECHA]`, `[PERIODO DE CONSERVACIÓN]`…). Búscalos con `[`.
-- **Enlaces:** `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl` en `src/config/clinic.ts`. El footer muestra los que tengan valor; `treatmentPolicyUrl` también alimenta la casilla del formulario. Si publicas las políticas en otra URL, cámbialas ahí.
-- **Banner de cookies:** aparece hasta que el visitante acepta o rechaza (clave `dp_cookie_consent` en localStorage). El botón "Configurar cookies" del footer lo vuelve a abrir. Los textos están en `clinic.cookieBanner`.
-- **Google Analytics:** copia `.env.example` a `.env`, y pon tu ID de medición en `VITE_GA_ID=G-XXXXXXXXXX` (se lee al compilar). Con el ID vacío no se carga nada. El script de gtag solo se añade si el visitante aceptó; si rechaza no se carga ni se guardan cookies de analítica. `.env` y `.env.local` están en `.gitignore`.
-- **Revisión legal:** todos los textos son plantillas y **deben revisarse con un abogado antes de publicarse**.
-
-## g) Cómo desplegar el sitio
-
-1. Ajusta `clinic.seo.siteUrl` al dominio real.
-2. Ejecuta `npm install` y luego `npm run build`. La carpeta `dist/` es el sitio completo (HTML, CSS, JS e imágenes estáticos).
-3. Sube el **contenido** de `dist/` a un hosting estático: Netlify, Vercel, Cloudflare Pages, GitHub Pages o un hosting tradicional (carpeta `public_html`).
-   - En Netlify, Vercel y Cloudflare Pages también puedes conectar el repositorio con comando `npm run build` y carpeta de salida `dist`.
-4. Configura el dominio: en tu proveedor de dominio apunta los registros DNS (CNAME o A, según indique el hosting) al servicio elegido.
-5. Activa HTTPS (certificado gratuito en la mayoría de hostings) y fuerza la redirección de `http` a `https`.
-6. Antes de anunciarlo, revisa la página en el móvil y comprueba el botón de WhatsApp con el número real.
 
 ## Estructura
 
@@ -151,4 +133,31 @@ index.html             plantilla del <head>; vite.config.ts inyecta clinic.seo e
 
 ## Licencia
 
-Consulta LICENSE.md para los términos de uso.
+Consulta LICENSE.md para los términos de uso. Incluye la licencia de sitio único, las condiciones de garantía y soporte, y el tope de responsabilidad.
+
+## Políticas legales
+
+- **Páginas** (plantillas en español, en la raíz del proyecto):
+  - `politica-de-privacidad.html`
+  - `politica-de-tratamiento-datos.html`
+  - `politica-de-cookies.html`
+
+  Reemplaza los marcadores entre corchetes (`[NOMBRE DE LA CLÍNICA]`, `[NIT O IDENTIFICACIÓN]`, `[DIRECCIÓN]`, `[CORREO DE CONTACTO]`, `[TELÉFONO]`, `[PLAZO DE RESPUESTA]`, `[FECHA]`, `[PERIODO DE CONSERVACIÓN]`…). Búscalos con `[`.
+- **Enlaces:** se configuran en `src/config/clinic.ts` con `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl`. El footer muestra los que tengan valor; `treatmentPolicyUrl` también alimenta la casilla del formulario. Si publicas las políticas en otra URL, cámbialas ahí.
+- **Banner de cookies:** aparece hasta que el visitante acepta o rechaza (clave `dp_cookie_consent` en localStorage). El botón "Configurar cookies" del footer lo vuelve a abrir. Los textos están en `clinic.cookieBanner`.
+- **Google Analytics:** copia `.env.example` a `.env`, y pon tu ID de medición en `VITE_GA_ID=G-XXXXXXXXXX` (se lee al compilar). Con el ID vacío no se carga nada. El script de gtag solo se añade si el visitante aceptó; si rechaza no se carga ni se guardan cookies de analítica. `.env` y `.env.local` están en `.gitignore`.
+
+## Responsabilidad del comprador
+
+Las políticas incluidas son plantillas de ejemplo. Antes de publicar, completa los marcadores, revísalas con tu abogado y asegúrate de que reflejan tu negocio. El responsable del tratamiento de datos es tu clínica, no el autor de la plantilla.
+
+## Despliegue en Cloudflare Pages
+
+1. Conecta el repositorio en Cloudflare Pages.
+2. Comando de build: `npm run build`.
+3. Directorio de salida: `dist`.
+4. Variable de entorno `VITE_GA_ID`, solo si usarás Google Analytics.
+5. Dominio propio y HTTPS automático desde el panel de Cloudflare.
+6. Si el build falla por la versión de Node, añade la variable de entorno `NODE_VERSION` con valor `24` en la configuración del proyecto.
+
+Antes, ajusta `clinic.seo.siteUrl` al dominio real. `.nvmrc` fija la versión de Node y `public/_headers` aplica las cabeceras de seguridad y la caché de `/images/*`.
