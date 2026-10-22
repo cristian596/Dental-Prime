@@ -16,9 +16,14 @@ export interface TrustPoint {
   icon: LucideIcon
 }
 
+export type HowItWorksIcon = 'message' | 'stethoscope' | 'smile'
+
 export interface HowItWorksStep {
   title: string
   description: string
+  icon: HowItWorksIcon
+  badge: string
+  firstVisitIncludes?: string[]
 }
 
 export interface HowItWorks {
@@ -26,6 +31,7 @@ export interface HowItWorks {
   title: string
   subtitle: string
   ctaLabel: string
+  trustNote: string
   steps: HowItWorksStep[]
 }
 
@@ -183,10 +189,33 @@ export const clinic = {
     title: 'Cómo funciona',
     subtitle: 'Comenzar es sencillo: tres pasos hacia tu nueva sonrisa.',
     ctaLabel: 'Agenda tu valoración',
+    // EJEMPLO: si el cliente tiene datos reales de confianza, reemplazar; vacío oculta la línea.
+    trustNote: 'Atención personalizada con cita previa (ejemplo)',
+    // EJEMPLO: confirmar los tiempos y condiciones reales de la clínica antes de publicar.
     steps: [
-      { title: 'Escríbenos', description: 'Cuéntanos por WhatsApp qué te gustaría mejorar y elegimos un horario que te acomode.' },
-      { title: 'Te valoramos', description: 'Un especialista revisa tu caso, resuelve tus dudas y te explica las opciones disponibles.' },
-      { title: 'Empieza tu tratamiento', description: 'Con tu plan definido, iniciamos el tratamiento y te acompañamos en cada etapa.' },
+      {
+        title: 'Escríbenos',
+        description: 'Cuéntanos por WhatsApp qué te gustaría mejorar y elegimos un horario que te acomode.',
+        icon: 'message',
+        badge: 'Respuesta en menos de 15 min (ejemplo)',
+      },
+      {
+        title: 'Te valoramos',
+        description: 'Un especialista revisa tu caso, resuelve tus dudas y te explica las opciones disponibles.',
+        icon: 'stethoscope',
+        badge: 'Duración aproximada: 30 a 45 min (ejemplo)',
+        firstVisitIncludes: [
+          'Revisión con cámara intraoral (ejemplo)',
+          'Diagnóstico digital (ejemplo)',
+          'Cotización sin compromiso (ejemplo)',
+        ],
+      },
+      {
+        title: 'Empieza tu tratamiento',
+        description: 'Con tu plan definido, iniciamos el tratamiento y te acompañamos en cada etapa.',
+        icon: 'smile',
+        badge: 'Plan de pago a tu medida (ejemplo)',
+      },
     ],
   } as HowItWorks,
 
