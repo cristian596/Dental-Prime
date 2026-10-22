@@ -178,9 +178,10 @@ export const clinic = {
     title: 'Nuestros tratamientos',
     subtitle: 'Soluciones completas para estrenar la sonrisa que siempre quisiste.',
     categories: [
-      { id: 'estetica', title: 'Estética dental' },
-      { id: 'ortodoncia', title: 'Ortodoncia' },
-      { id: 'implantes', title: 'Implantes' },
+      // EJEMPLO: reemplazar las descripciones por textos reales de la clínica.
+      { id: 'estetica', title: 'Estética dental', description: 'EJEMPLO: reemplazar por la descripción de la categoría.' },
+      { id: 'ortodoncia', title: 'Ortodoncia', description: 'EJEMPLO: reemplazar por la descripción de la categoría.' },
+      { id: 'implantes', title: 'Implantes', description: 'EJEMPLO: reemplazar por la descripción de la categoría.' },
     ],
   },
 
