@@ -16,6 +16,8 @@ export interface TrustPoint {
   icon: LucideIcon
 }
 
+export type HeroBadgeIcon = 'sparkles' | 'smile' | 'calendar'
+
 export type HowItWorksIcon = 'message' | 'stethoscope' | 'smile'
 
 export interface HowItWorksStep {
@@ -154,6 +156,8 @@ export const clinic = {
     whatsappLabel: 'Escríbenos por WhatsApp',
     // EJEMPLO: reemplazar por la foto del cliente (con licencia o permiso)
     image: { src: '/images/hero.webp', alt: `Fachada de la clínica ${clinicName} al atardecer, con grandes ventanales iluminados` },
+    // Insignias decorativas sobre el marco de la imagen; Hero.tsx traduce cada clave a su icono.
+    badges: ['sparkles', 'smile', 'calendar'] as HeroBadgeIcon[],
   },
 
   trustPoints: [
