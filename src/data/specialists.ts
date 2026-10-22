@@ -1,4 +1,4 @@
-export interface Specialist {
+interface Specialist {
   id: string
   name: string
   specialty: string

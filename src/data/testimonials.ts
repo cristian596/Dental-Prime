@@ -1,4 +1,4 @@
-export interface Testimonial {
+interface Testimonial {
   id: string
   name: string
   treatment: string

@@ -11,7 +11,7 @@ const averageRating = testimonials.length ? testimonials.reduce((sum, t) => sum 
 // EJEMPLO: reemplazar por datos reales del cliente (se reutiliza en textos de accesibilidad)
 const clinicName = 'AQUÍ VA TU MARCA'
 
-export interface TrustPoint {
+interface TrustPoint {
   label: string
   icon: LucideIcon
 }
@@ -20,7 +20,7 @@ export type HeroBadgeIcon = 'sparkles' | 'smile' | 'calendar'
 
 export type HowItWorksIcon = 'message' | 'stethoscope' | 'smile'
 
-export interface HowItWorksStep {
+interface HowItWorksStep {
   title: string
   description: string
   icon: HowItWorksIcon
@@ -37,12 +37,12 @@ export interface HowItWorks {
   steps: HowItWorksStep[]
 }
 
-export interface Stat {
+interface Stat {
   value: string
   label: string
 }
 
-export interface FaqItem {
+interface FaqItem {
   question: string
   answer: string
 }
@@ -52,7 +52,7 @@ export interface FinalCta {
   ctaLabel: string
 }
 
-export interface FinancingPartner {
+interface FinancingPartner {
   name: string
   /** Ruta del logo dentro de public/. */
   logo: string
@@ -91,7 +91,7 @@ export const clinic = {
 
   // EJEMPLO: reemplazar por datos reales del cliente
   // whatsappNumber: formato internacional, solo dígitos, sin "+" ni espacios.
-  whatsappNumber: '573001234567',
+  whatsappNumber: '57',
   whatsappDefaultMessage: 'Hola, quisiera información sobre una valoración dental.',
   phoneDisplay: '+57 300 123 4567',
 

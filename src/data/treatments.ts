@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react'
 import { Crown, Gem, Layers, Smile, SmilePlus, Sparkles, Syringe, Bone } from 'lucide-react'
 
-export interface Treatment {
+interface Treatment {
   id: string
   name: string
   description: string

@@ -1,4 +1,4 @@
-export interface Facility {
+interface Facility {
   id: string
   src: string
   alt: string

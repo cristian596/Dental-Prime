@@ -1,4 +1,4 @@
-export type Consent = 'accepted' | 'rejected'
+type Consent = 'accepted' | 'rejected'
 
 const STORAGE_KEY = 'dp_cookie_consent'
 export const OPEN_COOKIE_SETTINGS_EVENT = 'dp:open-cookie-settings'
