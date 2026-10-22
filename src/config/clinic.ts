@@ -53,6 +53,8 @@ export interface FinancingPartner {
   logoScale?: number
   width: number
   height: number
+  /** Texto corto bajo el logo. Vacío: no se muestra. */
+  badge: string
 }
 
 export interface Financing {
@@ -64,6 +66,9 @@ export interface Financing {
   benefits: string[]
   partnersTitle: string
   partners: FinancingPartner[]
+  ctaLabel: string
+  /** Mensaje prellenado de WhatsApp para el botón. */
+  ctaMessage: string
   disclaimer: string
 }
 
@@ -198,15 +203,19 @@ export const clinic = {
     id: 'financiamiento',
     title: 'Financia tu tratamiento',
     description: 'Consulta opciones de pago pensadas para que cuidar tu sonrisa se ajuste a tu presupuesto.',
-    benefits: ['Cuotas flexibles', 'Trámite sencillo', 'Asesoría en tu valoración'],
+    // EJEMPLO: reemplazar con condiciones reales del cliente
+    benefits: ['Paga hasta en 36 meses', 'Trámite en pocos minutos', 'Opciones con o sin codeudor'],
     partnersTitle: 'Entidades aliadas',
     // EJEMPLO: reemplazar por los aliados reales del cliente. Los logos son de marcas reales: confirmar permiso de uso o quitarlos.
+    // EJEMPLO: confirmar cada condición con la entidad aliada antes de publicar.
     // Lista vacía oculta el bloque de logos.
     partners: [
-      { name: 'ADDI', logo: '/images/addi.webp', alt: 'Logo de ADDI', width: 1760, height: 990 },
-      { name: 'Sistecrédito', logo: '/images/sistecredito.webp', alt: 'Logo de Sistecrédito', logoScale: 1.6, width: 554, height: 554 },
-      { name: 'Banco de Bogotá', logo: '/images/banco%20de%20bogota.webp', alt: 'Logo de Banco de Bogotá', logoScale: 1.6, width: 424, height: 309 },
+      { name: 'ADDI', logo: '/images/addi.webp', alt: 'Logo de ADDI', width: 1760, height: 990, badge: 'Ejemplo: aprobación en pocos minutos' },
+      { name: 'Sistecrédito', logo: '/images/sistecredito.webp', alt: 'Logo de Sistecrédito', logoScale: 1.6, width: 554, height: 554, badge: 'Ejemplo: hasta 24 cuotas' },
+      { name: 'Banco de Bogotá', logo: '/images/banco%20de%20bogota.webp', alt: 'Logo de Banco de Bogotá', logoScale: 1.6, width: 424, height: 309, badge: 'Ejemplo: sin cuota de manejo' },
     ],
+    ctaLabel: 'Pregunta por tu financiación en la valoración',
+    ctaMessage: 'Hola, quiero preguntar por opciones de financiación para mi tratamiento.',
     disclaimer: 'La aprobación del financiamiento depende de la evaluación de cada entidad financiera. Sujeto a condiciones.',
   } as Financing,
 
