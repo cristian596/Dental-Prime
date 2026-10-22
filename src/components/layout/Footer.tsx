@@ -1,9 +1,15 @@
 import { clinic } from '../../config/clinic'
+import { openCookieSettings } from '../../lib/consent'
 
 const year = new Date().getFullYear()
 
 export function Footer() {
   const { footer, address, hours } = clinic
+  const legalLinks = [
+    { label: footer.privacyLinkLabel, href: clinic.privacyPolicyUrl },
+    { label: footer.treatmentLinkLabel, href: clinic.treatmentPolicyUrl },
+    { label: footer.cookieLinkLabel, href: clinic.cookiePolicyUrl },
+  ].filter((l) => l.href)
   return (
     <footer className="bg-ink text-white">
       <div className={`mx-auto grid max-w-7xl gap-10 px-6 pt-14 pb-28 xl:px-10 md:pb-14 ${clinic.socials.length > 0 ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
@@ -51,18 +57,29 @@ export function Footer() {
         <p>
           © {year} {clinic.name}. {footer.rights}
         </p>
-        {clinic.privacyPolicyUrl && (
-          <p className="mt-2">
-            <a
-              href={clinic.privacyPolicyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/90 underline underline-offset-4 hover:text-white"
-            >
-              {footer.privacyLinkLabel}
-            </a>
-          </p>
+        {legalLinks.length > 0 && (
+          <ul className="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-1">
+            {legalLinks.map((l) => (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/90 underline underline-offset-4 hover:text-white"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         )}
+        <button
+          type="button"
+          onClick={openCookieSettings}
+          className="mt-2 text-white/90 underline underline-offset-4 hover:text-white"
+        >
+          {footer.cookieSettingsLabel}
+        </button>
       </div>
     </footer>
   )

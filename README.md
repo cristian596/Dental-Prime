@@ -96,7 +96,7 @@ Si prefieres nombres propios o más fotos, actualiza la ruta y el `alt` en `clin
 > Esta plantilla no sustituye asesoría legal ni sanitaria. Verifica los requisitos vigentes en tu país.
 
 - [ ] **a) Habilitación y registros:** confirmar la habilitación de la Secretaría de Salud correspondiente y los registros de cada profesional. No muestres títulos o especialidades que no puedas acreditar.
-- [ ] **b) Protección de datos:** publicar la política de tratamiento de datos (en Colombia, Ley 1581 de 2012) y poner su URL en `privacyPolicyUrl` de `src/config/clinic.ts` (se enlaza sola en el footer y el formulario; vacío oculta ambos enlaces). El formulario no guarda datos (abre WhatsApp), pero la clínica trata los que reciba por ese chat.
+- [ ] **b) Protección de datos:** publicar las políticas legales (en Colombia, Ley 1581 de 2012; ver la sección "Páginas legales") y poner sus URL en `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl` de `src/config/clinic.ts`. El formulario no guarda datos (abre WhatsApp), pero la clínica trata los que reciba por ese chat.
 - [ ] **c) Fotos:** contar con permiso escrito de cada persona retratada o usar imágenes con licencia. Esto incluye especialistas, instalaciones, tratamientos y hero.
 - [ ] **d) Precios y financiamiento:** confirmar que los aliados y condiciones son reales y que autorizaron el uso de su nombre. Revisa también precios, plazos y promociones de las preguntas frecuentes. Si no hay convenios, desactiva la sección (`financing.enabled = false`).
 - [ ] **e) Marca:** reemplazar el nombre, el logo y los colores (el logo actual es el nombre en texto y `public/favicon.svg`).
@@ -113,6 +113,14 @@ Estas imágenes muestran ese letrero y deben cambiarse antes de publicar:
 - `public/images/Teusaquillo.webp`: reemplazar: muestra la marca de ejemplo.
 - `public/images/Norte.webp`: reemplazar: muestra la marca de ejemplo.
 - `public/images/hero.webp`: reemplazar: muestra la marca de ejemplo.
+
+## Páginas legales, cookies y Google Analytics
+
+- **Páginas legales** (plantillas en español, en la raíz del proyecto): `politica-de-privacidad.html`, `politica-de-tratamiento-datos.html` y `politica-de-cookies.html`. Reemplaza los marcadores entre corchetes (`[NOMBRE DE LA CLÍNICA]`, `[NIT O IDENTIFICACIÓN]`, `[DIRECCIÓN]`, `[CORREO DE CONTACTO]`, `[TELÉFONO]`, `[PLAZO DE RESPUESTA]`, `[FECHA]`, `[PERIODO DE CONSERVACIÓN]`…). Búscalos con `[`.
+- **Enlaces:** `privacyPolicyUrl`, `treatmentPolicyUrl` y `cookiePolicyUrl` en `src/config/clinic.ts`. El footer muestra los que tengan valor; `treatmentPolicyUrl` también alimenta la casilla del formulario. Si publicas las políticas en otra URL, cámbialas ahí.
+- **Banner de cookies:** aparece hasta que el visitante acepta o rechaza (clave `dp_cookie_consent` en localStorage). El botón "Configurar cookies" del footer lo vuelve a abrir. Los textos están en `clinic.cookieBanner`.
+- **Google Analytics:** copia `.env.example` a `.env`, y pon tu ID de medición en `VITE_GA_ID=G-XXXXXXXXXX` (se lee al compilar). Con el ID vacío no se carga nada. El script de gtag solo se añade si el visitante aceptó; si rechaza no se carga ni se guardan cookies de analítica. `.env` y `.env.local` están en `.gitignore`.
+- **Revisión legal:** todos los textos son plantillas y **deben revisarse con un abogado antes de publicarse**.
 
 ## g) Cómo desplegar el sitio
 
@@ -132,6 +140,8 @@ src/
   data/                tratamientos, especialistas, instalaciones, testimonios
   lib/sections.ts      qué secciones se muestran según los datos
   lib/whatsapp.ts      buildWhatsAppUrl(numero, mensaje)
+  lib/consent.ts       lectura/escritura del consentimiento de cookies
+  lib/analytics.ts     loadAnalytics() (Google Analytics solo con consentimiento)
   components/
     layout/            Navbar, Footer, FloatingWhatsApp
     ui/                Button, SectionTitle, Card, Container, Section, Accordion

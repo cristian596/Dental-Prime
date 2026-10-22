@@ -14,7 +14,14 @@ const inputClasses =
 
 export function BookingForm({ tone }: { tone: SectionTone }) {
   const { booking: b } = clinic
-  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({})
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; consent?: string }>({})
+  const [consent, setConsent] = useState(false)
+
+  function handleConsentChange(checked: boolean) {
+    setConsent(checked)
+    // Al marcar se limpia el error; al desmarcar se avisa de inmediato.
+    setErrors((prev) => ({ ...prev, consent: checked ? undefined : b.consent.error }))
+  }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -27,10 +34,11 @@ export function BookingForm({ tone }: { tone: SectionTone }) {
     const nextErrors = {
       name: name ? undefined : b.fields.name.error,
       phone: phone ? undefined : b.fields.phone.error,
+      consent: consent ? undefined : b.consent.error,
     }
     setErrors(nextErrors)
-    if (nextErrors.name || nextErrors.phone) {
-      const firstInvalid = nextErrors.name ? 'name' : 'phone'
+    if (nextErrors.name || nextErrors.phone || nextErrors.consent) {
+      const firstInvalid = nextErrors.name ? 'name' : nextErrors.phone ? 'phone' : 'consent'
       ;(form.elements.namedItem(firstInvalid) as HTMLElement | null)?.focus()
       return
     }
@@ -124,24 +132,46 @@ export function BookingForm({ tone }: { tone: SectionTone }) {
               />
             </div>
 
-            <Button type="submit" className="w-full">
+            <div>
+              <div className="flex items-start gap-3">
+                <input
+                  id="consent"
+                  name="consent"
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => handleConsentChange(e.target.checked)}
+                  aria-invalid={!!errors.consent}
+                  aria-describedby={errors.consent ? 'consent-error' : undefined}
+                  className="mt-1 size-5 shrink-0 accent-brand-700"
+                />
+                <label htmlFor="consent" className="text-sm text-ink-soft">
+                  {b.consent.prefix}
+                  {clinic.treatmentPolicyUrl ? (
+                    <a
+                      href={clinic.treatmentPolicyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-brand-700 underline underline-offset-4"
+                    >
+                      {b.consent.linkLabel}
+                    </a>
+                  ) : (
+                    b.consent.linkLabel
+                  )}
+                  {b.consent.suffix}
+                </label>
+              </div>
+              {errors.consent && (
+                <p id="consent-error" role="alert" className="mt-1 text-sm text-red-700">
+                  {errors.consent}
+                </p>
+              )}
+            </div>
+
+            <Button type="submit" disabled={!consent} className="w-full disabled:cursor-not-allowed disabled:opacity-50">
               <MessageCircle aria-hidden="true" size={20} />
               {b.submitLabel}
             </Button>
-            {clinic.privacyPolicyUrl && (
-              <p className="text-sm text-ink-soft">
-                {b.privacyNoticePrefix}{' '}
-                <a
-                  href={clinic.privacyPolicyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-brand-700 underline underline-offset-4"
-                >
-                  {b.privacyNoticeLinkLabel}
-                </a>
-                .
-              </p>
-            )}
             <p className="text-sm text-ink-soft">{b.helper}</p>
           </form>
 

@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import { FloatingWhatsApp } from './components/layout/FloatingWhatsApp'
+import { CookieBanner } from './components/layout/CookieBanner'
 import { Footer } from './components/layout/Footer'
 import { Navbar } from './components/layout/Navbar'
 import { BookingForm } from './components/sections/BookingForm'
@@ -49,6 +50,7 @@ export default function App() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <CookieBanner />
     </>
   )
 }

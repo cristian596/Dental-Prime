@@ -117,9 +117,12 @@ export const clinic = {
     { label: 'Facebook', url: 'https://facebook.com/aqui-va-tu-marca' },
   ],
 
-  // EJEMPLO: reemplazar por la política de datos del cliente
-  // Vacío ('') oculta el enlace en el pie de página y en el formulario.
-  privacyPolicyUrl: 'https://www.ejemplo-aqui-va-tu-marca.com/politica-de-datos',
+  // EJEMPLO: reemplazar por las URL de las políticas publicadas del cliente.
+  // Por defecto apuntan a las plantillas incluidas (politica-*.html en la raíz del proyecto), que deben revisarse con un abogado.
+  // Vacío ('') oculta el enlace en el pie de página (y, en treatmentPolicyUrl, el enlace de la casilla del formulario).
+  privacyPolicyUrl: '/politica-de-privacidad.html', // EJEMPLO: reemplazar
+  treatmentPolicyUrl: '/politica-de-tratamiento-datos.html', // EJEMPLO: reemplazar
+  cookiePolicyUrl: '/politica-de-cookies.html', // EJEMPLO: reemplazar
 
   // Datos para <head> (index.html): vite.config.ts los inyecta en los marcadores %CLINIC_*%.
   seo: {
@@ -283,6 +286,15 @@ export const clinic = {
     },
   ] as FaqItem[],
 
+  cookieBanner: {
+    ariaLabel: 'Aviso de cookies',
+    title: 'Usamos cookies',
+    text: 'Usamos cookies técnicas para que el sitio funcione y, solo si las aceptas, cookies analíticas de Google Analytics para entender cómo se usa.',
+    policyLinkLabel: 'Política de cookies',
+    acceptLabel: 'Aceptar',
+    rejectLabel: 'Rechazar',
+  },
+
   floatingWhatsAppMessage: 'Hola, vi su página web y quisiera más información.',
   floatingWhatsAppLabel: 'Escríbenos por WhatsApp',
 
@@ -312,8 +324,12 @@ export const clinic = {
     },
     submitLabel: 'Enviar por WhatsApp',
     helper: 'Tus datos solo se usan para abrir la conversación en WhatsApp.',
-    privacyNoticePrefix: 'Al enviar aceptas nuestra',
-    privacyNoticeLinkLabel: 'política de tratamiento de datos',
+    consent: {
+      prefix: 'Acepto la ',
+      linkLabel: 'política de tratamiento de datos',
+      suffix: ' y autorizo el uso de mis datos para responder mi solicitud de valoración.',
+      error: 'Acepta la política de tratamiento de datos para continuar',
+    },
     messageIntro: 'Hola, quiero agendar una valoración.',
     notProvided: 'Sin preferencia',
     contactTitle: 'Visítanos',
@@ -333,7 +349,10 @@ export const clinic = {
     contactTitle: 'Contacto',
     socialTitle: 'Síguenos',
     rights: 'Todos los derechos reservados.',
-    privacyLinkLabel: 'Política de tratamiento de datos',
+    privacyLinkLabel: 'Política de privacidad',
+    treatmentLinkLabel: 'Política de tratamiento de datos',
+    cookieLinkLabel: 'Política de cookies',
+    cookieSettingsLabel: 'Configurar cookies',
     socialAriaLabel: (network: string) => `${network} (se abre en una pestaña nueva)`,
   },
 }

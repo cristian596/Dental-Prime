@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import { clinic } from './src/config/clinic.ts'
 
@@ -46,4 +47,15 @@ function clinicRobots() {
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), clinicHtml(), clinicRobots()],
+  // Páginas legales estáticas (HTML + Tailwind, sin React) además de index.html.
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(import.meta.dirname, 'index.html'),
+        privacidad: resolve(import.meta.dirname, 'politica-de-privacidad.html'),
+        tratamientoDatos: resolve(import.meta.dirname, 'politica-de-tratamiento-datos.html'),
+        cookies: resolve(import.meta.dirname, 'politica-de-cookies.html'),
+      },
+    },
+  },
 })
